@@ -9,10 +9,16 @@
 /* Begin PBXBuildFile section */
 		8DF1DCC9D1D7A4D8D4EDD6BC /* Pods_Obedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6403BF6E5F8E0603233E493 /* Pods_Obedar.framework */; };
 		DF168CD52062D81600CA1BCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CD42062D81600CA1BCC /* AppDelegate.swift */; };
-		DF168CD72062D81600CA1BCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CD62062D81600CA1BCC /* ViewController.swift */; };
 		DF168CDA2062D81600CA1BCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF168CD82062D81600CA1BCC /* Main.storyboard */; };
 		DF168CDC2062D81600CA1BCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF168CDB2062D81600CA1BCC /* Assets.xcassets */; };
 		DF168CDF2062D81600CA1BCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF168CDD2062D81600CA1BCC /* LaunchScreen.storyboard */; };
+		DF168CEB2062DA4600CA1BCC /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CEA2062DA4600CA1BCC /* RestaurantsViewController.swift */; };
+		DF168CED2062DA6600CA1BCC /* RestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CEC2062DA6600CA1BCC /* RestaurantsViewModel.swift */; };
+		DF168CF02062DB3200CA1BCC /* RestaurantTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CEF2062DB3200CA1BCC /* RestaurantTO.swift */; };
+		DF168CF22062DC0B00CA1BCC /* SoupTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CF12062DC0B00CA1BCC /* SoupTO.swift */; };
+		DF168CF42062DC5B00CA1BCC /* MealTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CF32062DC5B00CA1BCC /* MealTO.swift */; };
+		DF168CF62062DC9800CA1BCC /* MenuTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CF52062DC9800CA1BCC /* MenuTO.swift */; };
+		DF9523462062DDF800685442 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9523452062DDF800685442 /* Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +27,17 @@
 		D6403BF6E5F8E0603233E493 /* Pods_Obedar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Obedar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF168CD12062D81600CA1BCC /* Obedar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Obedar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF168CD42062D81600CA1BCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF168CD62062D81600CA1BCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DF168CD92062D81600CA1BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF168CDB2062D81600CA1BCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF168CDE2062D81600CA1BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF168CE02062D81600CA1BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF168CEA2062DA4600CA1BCC /* RestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantsViewController.swift; path = Obedar/ViewControllers/RestaurantsViewController.swift; sourceTree = SOURCE_ROOT; };
+		DF168CEC2062DA6600CA1BCC /* RestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewModel.swift; sourceTree = "<group>"; };
+		DF168CEF2062DB3200CA1BCC /* RestaurantTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTO.swift; sourceTree = "<group>"; };
+		DF168CF12062DC0B00CA1BCC /* SoupTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoupTO.swift; sourceTree = "<group>"; };
+		DF168CF32062DC5B00CA1BCC /* MealTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTO.swift; sourceTree = "<group>"; };
+		DF168CF52062DC9800CA1BCC /* MenuTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTO.swift; sourceTree = "<group>"; };
+		DF9523452062DDF800685442 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,14 +90,68 @@
 		DF168CD32062D81600CA1BCC /* Obedar */ = {
 			isa = PBXGroup;
 			children = (
-				DF168CD42062D81600CA1BCC /* AppDelegate.swift */,
-				DF168CD62062D81600CA1BCC /* ViewController.swift */,
-				DF168CD82062D81600CA1BCC /* Main.storyboard */,
-				DF168CDB2062D81600CA1BCC /* Assets.xcassets */,
-				DF168CDD2062D81600CA1BCC /* LaunchScreen.storyboard */,
+				DF9523442062DDDB00685442 /* Networking */,
+				DF168CEE2062DB1400CA1BCC /* TOs */,
 				DF168CE02062D81600CA1BCC /* Info.plist */,
+				DF168CE92062DA1B00CA1BCC /* ViewModel */,
+				DF168CE82062DA0100CA1BCC /* ViewControllers */,
+				DF168CE62062D9E200CA1BCC /* Supporting files */,
+				DF168CE72062D9F500CA1BCC /* Storyboard */,
 			);
 			path = Obedar;
+			sourceTree = "<group>";
+		};
+		DF168CE62062D9E200CA1BCC /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				DF168CD42062D81600CA1BCC /* AppDelegate.swift */,
+				DF168CDB2062D81600CA1BCC /* Assets.xcassets */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		DF168CE72062D9F500CA1BCC /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				DF168CD82062D81600CA1BCC /* Main.storyboard */,
+				DF168CDD2062D81600CA1BCC /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		DF168CE82062DA0100CA1BCC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DF168CEA2062DA4600CA1BCC /* RestaurantsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DF168CE92062DA1B00CA1BCC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DF168CEC2062DA6600CA1BCC /* RestaurantsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DF168CEE2062DB1400CA1BCC /* TOs */ = {
+			isa = PBXGroup;
+			children = (
+				DF168CEF2062DB3200CA1BCC /* RestaurantTO.swift */,
+				DF168CF12062DC0B00CA1BCC /* SoupTO.swift */,
+				DF168CF32062DC5B00CA1BCC /* MealTO.swift */,
+				DF168CF52062DC9800CA1BCC /* MenuTO.swift */,
+			);
+			path = TOs;
+			sourceTree = "<group>";
+		};
+		DF9523442062DDDB00685442 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DF9523452062DDF800685442 /* Networking.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,12 +268,14 @@
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -221,8 +289,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF168CD72062D81600CA1BCC /* ViewController.swift in Sources */,
 				DF168CD52062D81600CA1BCC /* AppDelegate.swift in Sources */,
+				DF168CF02062DB3200CA1BCC /* RestaurantTO.swift in Sources */,
+				DF168CED2062DA6600CA1BCC /* RestaurantsViewModel.swift in Sources */,
+				DF9523462062DDF800685442 /* Networking.swift in Sources */,
+				DF168CF42062DC5B00CA1BCC /* MealTO.swift in Sources */,
+				DF168CEB2062DA4600CA1BCC /* RestaurantsViewController.swift in Sources */,
+				DF168CF22062DC0B00CA1BCC /* SoupTO.swift in Sources */,
+				DF168CF62062DC9800CA1BCC /* MenuTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
