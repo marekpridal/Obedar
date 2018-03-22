@@ -7,3 +7,7 @@
 */
 
 "RESTAURANT_CELL_SUBTITLE" = "Delivered from restaurant at";
+"MAIN_COURSE" = "Main course";
+"SOUP" = "Soups";
+"MENU" = "Menu";
+"RESTAURANT_VIEW_CONTROLLER" = "Restaurants";

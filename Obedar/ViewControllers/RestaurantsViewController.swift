@@ -29,12 +29,28 @@ class RestaurantsViewController: UIViewController {
         
         setupBinding()
         tableView.register(cellType: RestaurantCell.self)
+        
+        self.title = "RESTAURANT_VIEW_CONTROLLER".localized
+        
+        if #available(iOS 11, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        
+        let detail = RestaurantDetailViewController.instantiate()
+        let navigationController = UINavigationController()
+        navigationController.pushViewController(detail, animated: false)
+        splitViewController?.showDetailViewController(navigationController, sender: nil)
+        
+        splitViewController?.showDetailViewController(detail, sender: nil)
     }
     
     private func setupBinding() {
-        model.restaurants.asObservable().filter{ $0.filter{ $0.hasFetched() }.count == self.model.restaurantsId.value.count }.subscribe { [weak self] (_) in
+        model.restaurants.asObservable().filter{ $0.filter{ $0.hasFetched() }.count == self.model.restaurantsId.value.count && $0.filter{ $0.hasFetched() }.count > 0 }.subscribe { [weak self] (_) in
             DispatchQueue.main.async {
+                print("Reload data")
                 self?.tableView.reloadData()
+                self?.tableView.isHidden = false
+                self?.view.layoutIfNeeded()
             }
         }.disposed(by: disposeBag)
     }
@@ -69,5 +85,19 @@ extension RestaurantsViewController : RestaurantCellDelegate {
         navigationController.pushViewController(detail, animated: false)
         splitViewController?.showDetailViewController(navigationController, sender: nil)
         print(restaurant)
+    }
+}
+
+extension RestaurantsViewController: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool
+    {
+        if primaryViewController.content == self
+        {
+            if let _  = secondaryViewController.content as? RestaurantDetailViewController
+            {
+                return true
+            }
+        }
+        return false
     }
 }

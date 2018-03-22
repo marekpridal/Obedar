@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     var localized:String
@@ -25,5 +26,32 @@ extension Double {
         formatter.allowsFloats = false
         formatter.maximumFractionDigits = 0
         return formatter.string(from: NSNumber(value: self)) ?? "\(self)"
+    }
+}
+
+extension UIViewController
+{
+    var contents: UIViewController?
+    {
+        if let splitVC = self as? UISplitViewController,let navVC = splitVC.viewControllers.first as? UINavigationController
+        {
+            print("split")
+            return navVC.visibleViewController ?? self
+        }else
+        {
+            print("None")
+            return self
+        }
+    }
+    
+    var content: UIViewController
+    {
+        if let navVC = self as? UINavigationController
+        {
+            return navVC.visibleViewController ?? self
+        }else
+        {
+            return self
+        }
     }
 }

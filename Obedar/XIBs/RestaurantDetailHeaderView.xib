@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="yPg-5S-6ay" customClass="RestaurantDetailHeaderView" customModule="Obedar" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmH-fR-2if">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I30-kT-Qq3">
+                            <rect key="frame" x="15" y="15" width="345" height="41"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="I30-kT-Qq3" secondAttribute="trailing" constant="15" id="7P9-Uc-j7D"/>
+                        <constraint firstItem="I30-kT-Qq3" firstAttribute="top" secondItem="HmH-fR-2if" secondAttribute="top" constant="15" id="A8w-7V-7Tf"/>
+                        <constraint firstAttribute="bottom" secondItem="I30-kT-Qq3" secondAttribute="bottom" constant="15" id="sHS-YN-Qai"/>
+                        <constraint firstItem="I30-kT-Qq3" firstAttribute="leading" secondItem="HmH-fR-2if" secondAttribute="leading" constant="15" id="zKd-cn-cmV"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="HmH-fR-2if" firstAttribute="top" secondItem="yPg-5S-6ay" secondAttribute="top" id="Phw-dB-Vzk"/>
+                <constraint firstItem="HmH-fR-2if" firstAttribute="leading" secondItem="4ZH-g4-NRl" secondAttribute="leading" id="Xia-K6-Rec"/>
+                <constraint firstItem="4ZH-g4-NRl" firstAttribute="trailing" secondItem="HmH-fR-2if" secondAttribute="trailing" id="ef4-UX-EEY"/>
+                <constraint firstAttribute="bottom" secondItem="HmH-fR-2if" secondAttribute="bottom" id="upN-KQ-Ebg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="4ZH-g4-NRl"/>
+            <connections>
+                <outlet property="title" destination="I30-kT-Qq3" id="wNa-Gr-CAW"/>
+            </connections>
+            <point key="canvasLocation" x="-7.5" y="-369.5"/>
+        </view>
+    </objects>
+</document>
