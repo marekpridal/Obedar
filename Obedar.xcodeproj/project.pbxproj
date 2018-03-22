@@ -19,6 +19,12 @@
 		DF168CF42062DC5B00CA1BCC /* MealTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CF32062DC5B00CA1BCC /* MealTO.swift */; };
 		DF168CF62062DC9800CA1BCC /* MenuTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CF52062DC9800CA1BCC /* MenuTO.swift */; };
 		DF9523462062DDF800685442 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9523452062DDF800685442 /* Networking.swift */; };
+		DFEA81E32063A20900614DA9 /* RestaurantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFEA81E22063A20900614DA9 /* RestaurantCell.xib */; };
+		DFEA81E52063A23200614DA9 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81E42063A23200614DA9 /* RestaurantCell.swift */; };
+		DFEA81E92063A51C00614DA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DFEA81EB2063A51C00614DA9 /* Localizable.strings */; };
+		DFEA81EE2063A5D800614DA9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81ED2063A5D800614DA9 /* Extensions.swift */; };
+		DFEA81F02063B16F00614DA9 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81EF2063B16F00614DA9 /* RestaurantDetailViewController.swift */; };
+		DFEA81F22063B19400614DA9 /* RestaurantDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81F12063B19400614DA9 /* RestaurantDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,13 @@
 		DF168CF32062DC5B00CA1BCC /* MealTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTO.swift; sourceTree = "<group>"; };
 		DF168CF52062DC9800CA1BCC /* MenuTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTO.swift; sourceTree = "<group>"; };
 		DF9523452062DDF800685442 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		DFEA81E22063A20900614DA9 /* RestaurantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RestaurantCell.xib; path = ../XIBs/RestaurantCell.xib; sourceTree = "<group>"; };
+		DFEA81E42063A23200614DA9 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantCell.swift; path = ../XIBs/RestaurantCell.swift; sourceTree = "<group>"; };
+		DFEA81EA2063A51C00614DA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DFEA81EC2063A54300614DA9 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DFEA81ED2063A5D800614DA9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DFEA81EF2063B16F00614DA9 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		DFEA81F12063B19400614DA9 /* RestaurantDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantDetailViewModel.swift; path = Obedar/ViewModel/RestaurantDetailViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +103,7 @@
 		DF168CD32062D81600CA1BCC /* Obedar */ = {
 			isa = PBXGroup;
 			children = (
+				DFEA81E62063A23D00614DA9 /* XIBs */,
 				DF9523442062DDDB00685442 /* Networking */,
 				DF168CEE2062DB1400CA1BCC /* TOs */,
 				DF168CE02062D81600CA1BCC /* Info.plist */,
@@ -106,6 +120,8 @@
 			children = (
 				DF168CD42062D81600CA1BCC /* AppDelegate.swift */,
 				DF168CDB2062D81600CA1BCC /* Assets.xcassets */,
+				DFEA81EB2063A51C00614DA9 /* Localizable.strings */,
+				DFEA81ED2063A5D800614DA9 /* Extensions.swift */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -122,6 +138,8 @@
 		DF168CE82062DA0100CA1BCC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DFEA81EF2063B16F00614DA9 /* RestaurantDetailViewController.swift */,
+				DFEA81F12063B19400614DA9 /* RestaurantDetailViewModel.swift */,
 				DF168CEA2062DA4600CA1BCC /* RestaurantsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -152,6 +170,16 @@
 				DF9523452062DDF800685442 /* Networking.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		DFEA81E62063A23D00614DA9 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				DFEA81E22063A20900614DA9 /* RestaurantCell.xib */,
+				DFEA81E42063A23200614DA9 /* RestaurantCell.swift */,
+			);
+			name = XIBs;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +228,7 @@
 			knownRegions = (
 				en,
 				Base,
+				cs,
 			);
 			mainGroup = DF168CC82062D81600CA1BCC;
 			productRefGroup = DF168CD22062D81600CA1BCC /* Products */;
@@ -216,6 +245,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFEA81E92063A51C00614DA9 /* Localizable.strings in Resources */,
+				DFEA81E32063A20900614DA9 /* RestaurantCell.xib in Resources */,
 				DF168CDF2062D81600CA1BCC /* LaunchScreen.storyboard in Resources */,
 				DF168CDC2062D81600CA1BCC /* Assets.xcassets in Resources */,
 				DF168CDA2062D81600CA1BCC /* Main.storyboard in Resources */,
@@ -289,10 +320,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFEA81E52063A23200614DA9 /* RestaurantCell.swift in Sources */,
+				DFEA81F22063B19400614DA9 /* RestaurantDetailViewModel.swift in Sources */,
 				DF168CD52062D81600CA1BCC /* AppDelegate.swift in Sources */,
 				DF168CF02062DB3200CA1BCC /* RestaurantTO.swift in Sources */,
 				DF168CED2062DA6600CA1BCC /* RestaurantsViewModel.swift in Sources */,
 				DF9523462062DDF800685442 /* Networking.swift in Sources */,
+				DFEA81EE2063A5D800614DA9 /* Extensions.swift in Sources */,
+				DFEA81F02063B16F00614DA9 /* RestaurantDetailViewController.swift in Sources */,
 				DF168CF42062DC5B00CA1BCC /* MealTO.swift in Sources */,
 				DF168CEB2062DA4600CA1BCC /* RestaurantsViewController.swift in Sources */,
 				DF168CF22062DC0B00CA1BCC /* SoupTO.swift in Sources */,
@@ -319,6 +354,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		DFEA81EB2063A51C00614DA9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFEA81EA2063A51C00614DA9 /* en */,
+				DFEA81EC2063A54300614DA9 /* cs */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -326,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -383,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

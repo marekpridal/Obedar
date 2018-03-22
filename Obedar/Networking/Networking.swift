@@ -36,8 +36,8 @@ struct Networking {
         request.httpMethod = "GET"
         let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, let jsonData = try? JSON(data: data), (response as? HTTPURLResponse)?.statusCode == 200 else {
-                print(error?.localizedDescription ?? "error")
-                completionHandler(RestaurantTO(type: nil, id: restaurantId, title: nil, soups: [], meals: [], menu: []),error)
+                print(error?.localizedDescription ?? "error \(restaurantId)")
+                completionHandler(RestaurantTO(type: nil, id: restaurantId, title: nil, cached: nil, web: nil, soups: [], meals: [], menu: []),error)
                 return
             }
             let type = jsonData["data"]["type"].string
@@ -46,6 +46,12 @@ struct Networking {
             let mealsData = jsonData["data"]["attributes"]["content"]["Hlavní jídla"].array
             let menuData = jsonData["data"]["attributes"]["content"]["Menu"].array
             
+            let cached = jsonData["data"]["attributes"]["cached"].string ?? ""
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+            let date = formatter.date(from: cached)
+            
+
             var soups:[SoupTO] = []
             soupsData?.forEach({ (json) in
                 soups.append(SoupTO(name: json[0].string ?? "", price: json[1].double ?? 0))
@@ -61,7 +67,7 @@ struct Networking {
                 menu.append(MenuTO(name: json[0].string ?? "", price: json[1].double, description: json[1].string))
             })
             
-            completionHandler(RestaurantTO(type: type, id: restaurantId, title: title, soups: soups, meals: meals, menu: menu), error)
+            completionHandler(RestaurantTO(type: type, id: restaurantId, title: title, cached: date, web: nil, soups: soups, meals: meals, menu: menu), error)
         }
         
         dataTask.resume()

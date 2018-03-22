@@ -11,8 +11,8 @@ import RxSwift
 
 class RestaurantsViewModel {
     
-    private var restaurants = Variable<[RestaurantTO]>([])
-    private var restaurantsId = Variable<[String]>([])
+    var restaurants = Variable<[RestaurantTO]>([])
+    var restaurantsId = Variable<[String]>([])
     private let disposeBag = DisposeBag()
     
     init() {
@@ -35,10 +35,6 @@ class RestaurantsViewModel {
                     }
                 })
             })
-        }).disposed(by: disposeBag)
-        
-        restaurants.asObservable().subscribe(onNext: { (restaurants) in
-            print(restaurants.debugDescription)
         }).disposed(by: disposeBag)
     }
 }
