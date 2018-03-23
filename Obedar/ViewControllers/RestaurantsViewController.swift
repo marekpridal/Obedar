@@ -10,38 +10,45 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class RestaurantsViewController: UIViewController {
+class RestaurantsViewController: UITableViewController {
     
     //MARK: Model
     let model = RestaurantsViewModel()
     
+    //MARK: Rx
     let disposeBag = DisposeBag()
     
-    //MARK: Table view
-    @IBOutlet weak var tableView: UITableView!
+    //MARK: Properties
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    let searchController = UISearchController(searchResultsController: nil)
+    let pullToRefresh = UIRefreshControl()
     
     //MARK: Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 11, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+            self.navigationItem.largeTitleDisplayMode = .automatic
+        }
+        
+        setup(activityIndicator: activityIndicator)
+        setupBinding()
+        setupUI()
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
-        setupBinding()
         tableView.register(cellType: RestaurantCell.self)
         
         self.title = "RESTAURANT_VIEW_CONTROLLER".localized
-        
-        if #available(iOS 11, *) {
-            self.navigationController?.navigationBar.prefersLargeTitles = true
-        }
-        
-        let detail = RestaurantDetailViewController.instantiate()
-        let navigationController = UINavigationController()
-        navigationController.pushViewController(detail, animated: false)
-        splitViewController?.showDetailViewController(navigationController, sender: nil)
-        
-        splitViewController?.showDetailViewController(detail, sender: nil)
+    }
+    
+    private func setup(activityIndicator: UIActivityIndicatorView) {
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 44)
+        tableView.tableFooterView = activityIndicator
     }
     
     private func setupBinding() {
@@ -50,29 +57,58 @@ class RestaurantsViewController: UIViewController {
                 print("Reload data")
                 self?.tableView.reloadData()
                 self?.tableView.isHidden = false
-                self?.view.layoutIfNeeded()
+                self?.activityIndicator.stopAnimating()
+                self?.pullToRefresh.endRefreshing()
             }
         }.disposed(by: disposeBag)
     }
+    
+    private func setupUI() {
+        //setupSearchController()
+        setupRefreshControl()
+    }
+    
+    private func setupRefreshControl() {
+        pullToRefresh.attributedTitle = NSAttributedString(string:"REFRESH".localized)
+        self.refreshControl = pullToRefresh
+        
+        pullToRefresh.rx.controlEvent(UIControlEvents.valueChanged).bind {
+            [weak self] in
+            self?.model.refreshRestaurants()
+        }.disposed(by: disposeBag)
+    }
+    
+    private func setupSearchController() {
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }else {
+            tableView.tableHeaderView = searchController.searchBar
+            self.tableView.contentOffset = CGPoint(x: 0.0,y: 55.0)
+        }
+    }
 
 }
-
-extension RestaurantsViewController : UITableViewDelegate {
+//MARK: Table view delegate
+extension RestaurantsViewController {
     
 }
-
-extension RestaurantsViewController : UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+//MARK: Table view data source
+extension RestaurantsViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if model.restaurants.value.count <= indexPath.row {
+            return UITableViewCell()
+        }
         let cell:RestaurantCell = tableView.dequeueReusableCell(for: indexPath)
         cell.setupCell(with: model.restaurants.value.filter{ $0.hasData() }[indexPath.row], delegate: self)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.restaurants.value.filter{ $0.hasData() }.count
     }
 }
@@ -81,23 +117,14 @@ extension RestaurantsViewController : RestaurantCellDelegate {
     func didSelectRestaurant(restaurant: RestaurantTO, cell: UITableViewCell) {
         let detail = RestaurantDetailViewController.instantiate()
         detail.model.data.value = restaurant
-        let navigationController = UINavigationController()
-        navigationController.pushViewController(detail, animated: false)
-        splitViewController?.showDetailViewController(navigationController, sender: nil)
+        navigationController?.pushViewController(detail, animated: true)
         print(restaurant)
     }
 }
 
-extension RestaurantsViewController: UISplitViewControllerDelegate {
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool
-    {
-        if primaryViewController.content == self
-        {
-            if let _  = secondaryViewController.content as? RestaurantDetailViewController
-            {
-                return true
-            }
-        }
-        return false
+//MARK: Search Delegate
+extension RestaurantsViewController: UISearchResultsUpdating,UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
 }

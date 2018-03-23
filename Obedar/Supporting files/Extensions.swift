@@ -19,7 +19,7 @@ extension Double {
     var currency:String
     {
         let formatter = NumberFormatter()
-        formatter.locale = Locale.current
+        formatter.locale = Locale(identifier: "cs")
         formatter.numberStyle = .currency
         formatter.usesGroupingSeparator = true
         formatter.currencyCode = "CZK"

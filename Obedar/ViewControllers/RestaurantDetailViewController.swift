@@ -28,6 +28,12 @@ class RestaurantDetailViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         
         self.title = model.data.value.title
+        
+        if #available(iOS 11, *) {
+            self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        }
+        
+        setupBinding()
     }
     
     private func setupBinding() {

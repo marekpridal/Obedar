@@ -7,7 +7,8 @@
 */
 
 "RESTAURANT_CELL_SUBTITLE" = "Vyzvednuto z resataurace: ";
-"MAIN_COURSE" = "Hlavní jídlo";
-"SOUP" = "Polévka";
+"MAIN_COURSE" = "Hlavní jídla";
+"SOUP" = "Polévky";
 "MENU" = "Menu";
 "RESTAURANT_VIEW_CONTROLLER" = "Restaurace";
+"REFRESH" = "Aktualizovat";

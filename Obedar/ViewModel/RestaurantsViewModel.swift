@@ -17,6 +17,10 @@ class RestaurantsViewModel {
     
     init() {
         setupBinding()
+        refreshRestaurants()
+    }
+    
+    func refreshRestaurants() {
         Networking.getRestaurants { [weak self] (restaurantsId, error) in
             if let restaurantsId = restaurantsId {
                 self?.restaurantsId.value = restaurantsId
@@ -25,7 +29,8 @@ class RestaurantsViewModel {
     }
     
     private func setupBinding() {
-        restaurantsId.asObservable().subscribe(onNext: { (restaurantsId) in
+        restaurantsId.asObservable().subscribe(onNext: { [weak self] (restaurantsId) in
+            self?.restaurants.value.removeAll()
             restaurantsId.forEach({ (restaurantId) in
                 print("Getting menu for \(restaurantId)")
                 Networking.getMenu(for: restaurantId, completionHandler: { [weak self] (restaurant, error) in
