@@ -31,15 +31,25 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TiT-ke-w9X">
+                            <rect key="frame" x="15" y="76" width="464" height="1"/>
+                            <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="kln-0K-lOu"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="TiT-ke-w9X" secondAttribute="bottom" constant="5" id="Iv2-i0-bA0"/>
+                        <constraint firstItem="TiT-ke-w9X" firstAttribute="leading" secondItem="wOA-38-kSu" secondAttribute="leading" constant="15" id="aTn-1J-scW"/>
                         <constraint firstItem="AwJ-fZ-XHi" firstAttribute="top" secondItem="wOA-38-kSu" secondAttribute="top" constant="15" id="cGJ-kn-M27"/>
                         <constraint firstAttribute="trailing" secondItem="AwJ-fZ-XHi" secondAttribute="trailing" constant="15" id="cch-es-9FX"/>
                         <constraint firstItem="nvW-1h-IxN" firstAttribute="top" secondItem="AwJ-fZ-XHi" secondAttribute="bottom" constant="5" id="deE-aH-YC4"/>
                         <constraint firstAttribute="bottom" secondItem="nvW-1h-IxN" secondAttribute="bottom" constant="15" id="fdz-HA-4ms"/>
                         <constraint firstItem="nvW-1h-IxN" firstAttribute="trailing" secondItem="AwJ-fZ-XHi" secondAttribute="trailing" id="ktl-qe-qct"/>
                         <constraint firstItem="nvW-1h-IxN" firstAttribute="leading" secondItem="AwJ-fZ-XHi" secondAttribute="leading" id="lzO-yP-nhm"/>
+                        <constraint firstAttribute="trailing" secondItem="TiT-ke-w9X" secondAttribute="trailing" id="nSQ-b8-M1t"/>
                         <constraint firstItem="AwJ-fZ-XHi" firstAttribute="leading" secondItem="wOA-38-kSu" secondAttribute="leading" constant="15" id="rGH-qI-HM4"/>
                     </constraints>
                 </view>
@@ -54,6 +64,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="8th-3l-kwt"/>
             <connections>
+                <outlet property="separator" destination="TiT-ke-w9X" id="wTD-RH-9rs"/>
                 <outlet property="subtitle" destination="nvW-1h-IxN" id="zyJ-B8-2rG"/>
                 <outlet property="title" destination="AwJ-fZ-XHi" id="hcp-Go-5zu"/>
             </connections>

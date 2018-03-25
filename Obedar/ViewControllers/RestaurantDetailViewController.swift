@@ -23,6 +23,7 @@ class RestaurantDetailViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         tableView.register(cellType: RestaurantDetailCell.self)
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         tableView.rowHeight = UITableViewAutomaticDimension

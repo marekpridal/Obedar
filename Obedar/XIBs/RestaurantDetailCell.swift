@@ -13,6 +13,7 @@ class RestaurantDetailCell: UITableViewCell, NibReusable {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
+    @IBOutlet weak var separator: UIView!
     
     func setup(title: String?, subtitle: String?) {
         self.title.text = title
