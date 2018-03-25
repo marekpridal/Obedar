@@ -61,19 +61,28 @@ extension RestaurantDetailViewController : UITableViewDataSource {
         switch section
         {
         case 0:
-            return model.data.value.soups?.count ?? 1
+            return model.data.value.soups?.count ?? 0 > 1 ?  model.data.value.soups!.count : 1
         case 1:
-            return model.data.value.meals?.count ?? 1
+            return model.data.value.meals?.count ?? 0 > 1 ? model.data.value.meals!.count : 1
         case 2:
-            return model.data.value.menu?.count ?? 1
+            return model.data.value.menu?.count ?? 0 > 1 ? model.data.value.menu!.count : 1
         default:
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: RestaurantDetailCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.setup(title: getMenuItems(for: indexPath).name, subtitle: getMenuItems(for: indexPath).priceWithCurrency)
+        if indexPath.row < getFoodCount(for: indexPath) {
+            let cell: RestaurantDetailCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.setup(title: getMenuItems(for: indexPath).name, subtitle: getMenuItems(for: indexPath).priceWithCurrency)
+            cell.separator.isHidden = indexPath.row + 1 == getFoodCount(for: indexPath)
+            return cell
+        }
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "NO_DATA_FOR_CATEGORY".localized
+        cell.textLabel?.textAlignment = .center
+        cell.textLabel?.textColor = UIColor.lightGray
+        cell.textLabel?.numberOfLines = 0
         return cell
     }
     
@@ -108,6 +117,20 @@ extension RestaurantDetailViewController : UITableViewDataSource {
             return (name: model.data.value.menu?[indexPath.row].name, priceWithCurrency: model.data.value.menu?[indexPath.row].price?.currency)
         default:
             return (name: nil, priceWithCurrency: nil)
+        }
+    }
+    
+    private func getFoodCount(for indexPath:IndexPath) -> Int {
+        switch indexPath.section
+        {
+        case 0:
+            return model.data.value.soups?.count ?? 0
+        case 1:
+            return model.data.value.meals?.count ?? 0
+        case 2:
+            return model.data.value.menu?.count ?? 0
+        default:
+            return 0
         }
     }
 }
