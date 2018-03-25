@@ -59,6 +59,7 @@ class RestaurantsViewController: UITableViewController {
                 self?.tableView.isHidden = false
                 self?.activityIndicator.stopAnimating()
                 self?.pullToRefresh.endRefreshing()
+                UINotificationFeedbackGenerator().notificationOccurred(.success)
             }
         }.disposed(by: disposeBag)
     }
