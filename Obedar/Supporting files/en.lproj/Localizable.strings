@@ -12,4 +12,4 @@
 "MENU" = "Menu";
 "RESTAURANT_VIEW_CONTROLLER" = "Restaurants";
 "REFRESH" = "Refresh";
-"NO_DATA_FOR_CATEGORY" = "Cannot found meals for category in this restaurant 🤷‍♂️";
+"NO_DATA_FOR_CATEGORY" = "Cannot found meals for required category in this restaurant 🤷‍♂️";
