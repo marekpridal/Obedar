@@ -38,12 +38,14 @@ class RestaurantDetailViewController: UIViewController {
     }
     
     private func setupBinding() {
-        model.data.asObservable().subscribe { [weak self] (_) in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-                self?.tableView.isHidden = false
+        model.data.asObservable().observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (restaurant) in
+            self?.tableView.reloadData()
+            self?.tableView.isHidden = false
+            if restaurant.web != nil {
+                let item = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.pageCurl, target: self, action: nil)
+                self?.navigationItem.setRightBarButton(item, animated: true)
             }
-        }.disposed(by: disposeBag)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
     }
 
 }

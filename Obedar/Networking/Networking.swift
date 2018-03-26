@@ -72,4 +72,23 @@ struct Networking {
         
         dataTask.resume()
     }
+    
+    static func getRestaurantDetail(for restaurant:RestaurantTO, completionHandler: @escaping (RestaurantTO?,Error?) -> Void) {
+        var request = URLRequest(url: Constants.rootURL.appendingPathComponent(restaurant.id))
+        request.httpMethod = "GET"
+        let dataTask = URLSession.shared.dataTask(with: request) {
+            (data,response,error) in
+            
+            guard let data = data, let jsonData = try? JSON(data: data), (response as? HTTPURLResponse)?.statusCode == 200 else {
+                print(error?.localizedDescription ?? "error \(restaurant)")
+                completionHandler(restaurant,error)
+                return
+            }
+            var restaurant = restaurant
+            restaurant.web = jsonData["data"]["attributes"]["url"].url
+            completionHandler(restaurant,error)
+        }
+        
+        dataTask.resume()
+    }
 }
