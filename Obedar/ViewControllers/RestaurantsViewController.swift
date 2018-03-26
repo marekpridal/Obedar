@@ -52,15 +52,14 @@ class RestaurantsViewController: UITableViewController {
     }
     
     private func setupBinding() {
-        model.restaurants.asObservable().filter{ $0.filter{ $0.hasFetched() }.count == self.model.restaurantsId.value.count && $0.filter{ $0.hasFetched() }.count > 0 }.subscribe { [weak self] (_) in
-            DispatchQueue.main.async {
-                print("Reload data")
-                self?.tableView.reloadData()
-                self?.tableView.isHidden = false
-                self?.activityIndicator.stopAnimating()
-                self?.pullToRefresh.endRefreshing()
-                UINotificationFeedbackGenerator().notificationOccurred(.success)
-            }
+        model.restaurants.asObservable().observeOn(MainScheduler.instance).filter{ $0.filter{ $0.hasData() }.count > 0 && $0.filter{ $0.hasData() }.count != self.tableView.numberOfRows(inSection: 0) }.subscribe { [weak self] (_) in
+            guard let `self` = self else { return }
+            print("Reload data")
+            self.tableView.reloadData()
+            self.tableView.isHidden = false
+            self.activityIndicator.stopAnimating()
+            self.pullToRefresh.endRefreshing()
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
         }.disposed(by: disposeBag)
     }
     
