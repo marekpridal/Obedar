@@ -33,6 +33,10 @@ class RestaurantsViewController: UITableViewController {
             self.navigationItem.largeTitleDisplayMode = .automatic
         }
         
+        
+        self.splitViewController!.delegate = self;
+        self.splitViewController!.preferredDisplayMode = .allVisible
+        
         setup(activityIndicator: activityIndicator)
         setupBinding()
         setupUI()
@@ -118,8 +122,14 @@ extension RestaurantsViewController {
 extension RestaurantsViewController : RestaurantCellDelegate {
     func didSelectRestaurant(restaurant: RestaurantTO, cell: UITableViewCell) {
         let detail = RestaurantDetailViewController.instantiate()
-        detail.model.data.value = restaurant
-        navigationController?.pushViewController(detail, animated: true)
+        detail.model = RestaurantDetailViewModel()
+        detail.model?.data.value = restaurant
+        
+        let navigationController = UINavigationController()
+        navigationController.pushViewController(detail, animated: false)
+        
+        splitViewController?.showDetailViewController(navigationController, sender: nil)
+        
         print(restaurant)
     }
 }
@@ -128,5 +138,20 @@ extension RestaurantsViewController : RestaurantCellDelegate {
 extension RestaurantsViewController: UISearchResultsUpdating,UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         
+    }
+}
+
+extension RestaurantsViewController : UISplitViewControllerDelegate {
+    //MARK: Split view controller
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool
+    {
+        if primaryViewController.content == self
+        {
+            if let _  = secondaryViewController.content as? RestaurantDetailViewController
+            {
+                return true
+            }
+        }
+        return false
     }
 }

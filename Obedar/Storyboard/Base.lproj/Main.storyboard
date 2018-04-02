@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jIV-qQ-lpx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gAu-tn-ulA">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,6 +54,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hjb-vL-89I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-242" y="-214"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="anx-xH-yRq">
+            <objects>
+                <splitViewController id="gAu-tn-ulA" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="jIV-qQ-lpx" kind="relationship" relationship="masterViewController" id="bre-1b-MxH"/>
+                        <segue destination="Amd-YJ-Tmj" kind="relationship" relationship="detailViewController" id="hi4-w1-z4K"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5kF-Jh-WTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2567" y="-214"/>
         </scene>
         <!--Restaurant Detail View Controller-->
         <scene sceneID="tHF-az-L3e">

@@ -12,14 +12,20 @@ import Reusable
 
 class RestaurantDetailViewController: UIViewController {
     
-    var model = RestaurantDetailViewModel()
+    var model: RestaurantDetailViewModel?
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard model != nil else {
+            tableView.isHidden = true
+            return
+        }
 
+        tableView.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
@@ -28,7 +34,7 @@ class RestaurantDetailViewController: UIViewController {
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        self.title = model.data.value.title
+        self.title = model?.data.value.title
         
         if #available(iOS 11, *) {
             self.navigationController?.navigationItem.largeTitleDisplayMode = .never
@@ -38,7 +44,7 @@ class RestaurantDetailViewController: UIViewController {
     }
     
     private func setupBinding() {
-        model.data.asObservable().observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (restaurant) in
+        model?.data.asObservable().observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (restaurant) in
             self?.tableView.reloadData()
             self?.tableView.isHidden = false
             if restaurant.web != nil {
@@ -64,11 +70,11 @@ extension RestaurantDetailViewController : UITableViewDataSource {
         switch section
         {
         case 0:
-            return model.data.value.soups?.count ?? 0 > 1 ?  model.data.value.soups!.count : 1
+            return model?.data.value.soups?.count ?? 0 > 1 ?  model?.data.value.soups?.count ?? 0 : 1
         case 1:
-            return model.data.value.meals?.count ?? 0 > 1 ? model.data.value.meals!.count : 1
+            return model?.data.value.meals?.count ?? 0 > 1 ? model?.data.value.meals?.count ?? 0 : 1
         case 2:
-            return model.data.value.menu?.count ?? 0 > 1 ? model.data.value.menu!.count : 1
+            return model?.data.value.menu?.count ?? 0 > 1 ? model?.data.value.menu?.count ?? 0 : 1
         default:
             return 0
         }
@@ -113,11 +119,11 @@ extension RestaurantDetailViewController : UITableViewDataSource {
         switch indexPath.section
         {
         case 0:
-            return (name: model.data.value.soups?[indexPath.row].name, priceWithCurrency: model.data.value.soups?[indexPath.row].price.currency)
+            return (name: model?.data.value.soups?[indexPath.row].name, priceWithCurrency: model?.data.value.soups?[indexPath.row].price.currency)
         case 1:
-            return (name: model.data.value.meals?[indexPath.row].name, priceWithCurrency: model.data.value.meals?[indexPath.row].price.currency)
+            return (name: model?.data.value.meals?[indexPath.row].name, priceWithCurrency: model?.data.value.meals?[indexPath.row].price.currency)
         case 2:
-            return (name: model.data.value.menu?[indexPath.row].name, priceWithCurrency: model.data.value.menu?[indexPath.row].price?.currency)
+            return (name: model?.data.value.menu?[indexPath.row].name, priceWithCurrency: model?.data.value.menu?[indexPath.row].price?.currency)
         default:
             return (name: nil, priceWithCurrency: nil)
         }
@@ -127,11 +133,11 @@ extension RestaurantDetailViewController : UITableViewDataSource {
         switch indexPath.section
         {
         case 0:
-            return model.data.value.soups?.count ?? 0
+            return model?.data.value.soups?.count ?? 0
         case 1:
-            return model.data.value.meals?.count ?? 0
+            return model?.data.value.meals?.count ?? 0
         case 2:
-            return model.data.value.menu?.count ?? 0
+            return model?.data.value.menu?.count ?? 0
         default:
             return 0
         }
