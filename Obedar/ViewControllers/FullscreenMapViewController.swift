@@ -28,6 +28,7 @@ class FullscreenMapViewController: UIViewController {
         getLocation()
         setupNavigationItem()
         self.title = "MAP".localized
+        self.navigationController?.navigationBar.tintColor = UIColor.black
         
         if #available(iOS 11, *) {
             setupCompassButton()

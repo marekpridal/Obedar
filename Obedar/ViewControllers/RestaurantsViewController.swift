@@ -40,12 +40,22 @@ class RestaurantsViewController: UITableViewController {
         setup(activityIndicator: activityIndicator)
         setupBinding()
         setupUI()
+        setupAppShortcuts()
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(cellType: RestaurantCell.self)
         
         self.title = "RESTAURANT_VIEW_CONTROLLER".localized
+    }
+    
+    private func setupAppShortcuts() {
+        guard (UIApplication.shared.shortcutItems?.count ?? 0) == 0 else { return }
+        
+        let showMap = UIMutableApplicationShortcutItem(type: Constants.showMapShortcutItemType, localizedTitle: "SHOW_ON_MAP".localized)
+        showMap.icon = UIApplicationShortcutIcon(templateImageName: "mapIcon")
+        
+        UIApplication.shared.shortcutItems = [showMap]
     }
     
     private func setup(activityIndicator: UIActivityIndicatorView) {

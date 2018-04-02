@@ -31,6 +31,7 @@
 		DFEA81F22063B19400614DA9 /* RestaurantDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81F12063B19400614DA9 /* RestaurantDetailViewModel.swift */; };
 		DFF635E22072548900B1FE03 /* FullscreenMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF635E12072548900B1FE03 /* FullscreenMapViewController.swift */; };
 		DFF635E4207254F100B1FE03 /* FullscreenMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF635E3207254F100B1FE03 /* FullscreenMapViewModel.swift */; };
+		DFF635E6207270C200B1FE03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF635E5207270C200B1FE03 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		DFEA81F12063B19400614DA9 /* RestaurantDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantDetailViewModel.swift; path = Obedar/ViewModel/RestaurantDetailViewModel.swift; sourceTree = SOURCE_ROOT; };
 		DFF635E12072548900B1FE03 /* FullscreenMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenMapViewController.swift; sourceTree = "<group>"; };
 		DFF635E3207254F100B1FE03 /* FullscreenMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenMapViewModel.swift; sourceTree = "<group>"; };
+		DFF635E5207270C200B1FE03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				DF168CDB2062D81600CA1BCC /* Assets.xcassets */,
 				DFEA81EB2063A51C00614DA9 /* Localizable.strings */,
 				DFEA81ED2063A5D800614DA9 /* Extensions.swift */,
+				DFF635E5207270C200B1FE03 /* Constants.swift */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFEA81E52063A23200614DA9 /* RestaurantCell.swift in Sources */,
+				DFF635E6207270C200B1FE03 /* Constants.swift in Sources */,
 				DFEA81F22063B19400614DA9 /* RestaurantDetailViewModel.swift in Sources */,
 				DF168CD52062D81600CA1BCC /* AppDelegate.swift in Sources */,
 				DF168CF02062DB3200CA1BCC /* RestaurantTO.swift in Sources */,
