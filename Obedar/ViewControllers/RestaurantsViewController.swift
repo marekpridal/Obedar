@@ -73,6 +73,11 @@ class RestaurantsViewController: UITableViewController {
         //setupSearchController()
         setupRefreshControl()
         setupNavigationItem()
+        
+        if(traitCollection.forceTouchCapability == .available)
+        {
+            registerForPreviewing(with: self, sourceView: view)
+        }
     }
     
     private func setupNavigationItem() {
@@ -159,9 +164,8 @@ extension RestaurantsViewController: UISearchResultsUpdating,UISearchBarDelegate
         
     }
 }
-
+//MARK: Split view controller
 extension RestaurantsViewController : UISplitViewControllerDelegate {
-    //MARK: Split view controller
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool
     {
         if primaryViewController.content == self
@@ -172,5 +176,21 @@ extension RestaurantsViewController : UISplitViewControllerDelegate {
             }
         }
         return false
+    }
+}
+
+extension RestaurantsViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let index = tableView.indexPathForRow(at: location)?.row else { return nil }
+        let detail = RestaurantDetailViewController.instantiate()
+        detail.model = RestaurantDetailViewModel()
+        detail.model?.data.value = model.restaurants.value[index]
+        return detail
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        let navigationController = UINavigationController()
+        navigationController.pushViewController(viewControllerToCommit, animated: false)
+        splitViewController?.showDetailViewController(navigationController, sender: nil)
     }
 }
