@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import Reusable
+import MapKit
 
 class RestaurantDetailViewController: UIViewController {
     
@@ -24,7 +25,8 @@ class RestaurantDetailViewController: UIViewController {
             tableView.isHidden = true
             return
         }
-
+        
+        navigationController?.navigationBar.tintColor = UIColor.black
         tableView.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,13 +49,26 @@ class RestaurantDetailViewController: UIViewController {
         model?.data.asObservable().observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (restaurant) in
             self?.tableView.reloadData()
             self?.tableView.isHidden = false
-            if restaurant.web != nil {
-                let item = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.pageCurl, target: self, action: nil)
-                self?.navigationItem.setRightBarButton(item, animated: true)
-            }
+            self?.setupNavigationItems(with: restaurant)
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
     }
 
+    private func setupNavigationItems(with restaurant:RestaurantTO) {
+        var items:[UIBarButtonItem] = []
+        
+        if let coordinate = restaurant.GPS {
+            let navigate = UIBarButtonItem(image: #imageLiteral(resourceName: "navigateIcon"), style: .plain, target: nil, action: nil)
+            navigate.rx.tap.bind {
+                let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
+                mapItem.name = restaurant.title
+                mapItem.url = restaurant.web
+                mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeWalking])
+                }.disposed(by: disposeBag)
+            items.append(navigate)
+        }
+        
+        navigationItem.setRightBarButtonItems(items, animated: true)
+    }
 }
 
 extension RestaurantDetailViewController : UITableViewDelegate {
