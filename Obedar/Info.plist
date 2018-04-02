@@ -46,5 +46,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Přístup k vaší lokaci se používá pro zobrazení vaší vzdálenosti k restauracím</string>
 </dict>
 </plist>

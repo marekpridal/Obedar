@@ -13,3 +13,5 @@
 "RESTAURANT_VIEW_CONTROLLER" = "Restaurace";
 "REFRESH" = "Aktualizovat";
 "NO_DATA_FOR_CATEGORY" = "Pro restauraci se nepodařilo najít žádná jídla z téhle kategorie 🤷‍♂️";
+"MAP" = "Mapa";
+"DISMISS" = "Zavřít";

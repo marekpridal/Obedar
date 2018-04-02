@@ -58,7 +58,7 @@ class RestaurantsViewController: UITableViewController {
     private func setupBinding() {
         model.restaurants.asObservable().observeOn(MainScheduler.instance).filter{ $0.filter{ $0.hasData() }.count > 0 && $0.filter{ $0.hasFetched() }.count != self.tableView.numberOfRows(inSection: 0) }.subscribe(onNext: { [weak self] (restaurant) in
             guard let `self` = self else { return }
-            print("Reload data")
+            print("Reload data with new restaurant \(restaurant.last?.id ?? "")")
             self.tableView.reloadData()
             self.tableView.isHidden = false
             if ((restaurant.filter{ $0.hasFetched() }.count) == (self.model.restaurantsId.value.count)) {
@@ -72,6 +72,25 @@ class RestaurantsViewController: UITableViewController {
     private func setupUI() {
         //setupSearchController()
         setupRefreshControl()
+        setupNavigationItem()
+    }
+    
+    private func setupNavigationItem() {
+        navigationItem.setRightBarButton(UIBarButtonItem(image: #imageLiteral(resourceName: "mapIcon"), style: .plain, target: self, action: nil), animated: true)
+        
+        navigationItem.rightBarButtonItem?.rx.tap.bind {
+            [weak self] in
+            guard let `self` = self else { return }
+            
+            let mapVC = FullscreenMapViewController.instantiate()
+            mapVC.model.data.value = Networking.restaurantsLocal
+            
+            let navigationController = UINavigationController()
+            navigationController.pushViewController(mapVC, animated: false)
+            
+            self.navigationController?.present(navigationController, animated: true, completion: nil)
+            
+        }.disposed(by: disposeBag)
     }
     
     private func setupRefreshControl() {

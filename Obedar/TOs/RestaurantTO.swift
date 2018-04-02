@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct RestaurantTO {
     let type:String?
@@ -17,6 +18,7 @@ struct RestaurantTO {
     let soups:[SoupTO]?
     let meals:[MealTO]?
     let menu:[MenuTO]?
+    let GPS:CLLocationCoordinate2D?
     
     func hasData() -> Bool {
         return !(soups?.isEmpty ?? true) || !(meals?.isEmpty ?? true) || !(menu?.isEmpty ?? true)

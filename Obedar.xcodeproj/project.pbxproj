@@ -29,6 +29,8 @@
 		DFEA81EE2063A5D800614DA9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81ED2063A5D800614DA9 /* Extensions.swift */; };
 		DFEA81F02063B16F00614DA9 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81EF2063B16F00614DA9 /* RestaurantDetailViewController.swift */; };
 		DFEA81F22063B19400614DA9 /* RestaurantDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81F12063B19400614DA9 /* RestaurantDetailViewModel.swift */; };
+		DFF635E22072548900B1FE03 /* FullscreenMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF635E12072548900B1FE03 /* FullscreenMapViewController.swift */; };
+		DFF635E4207254F100B1FE03 /* FullscreenMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF635E3207254F100B1FE03 /* FullscreenMapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		DFEA81ED2063A5D800614DA9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DFEA81EF2063B16F00614DA9 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		DFEA81F12063B19400614DA9 /* RestaurantDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantDetailViewModel.swift; path = Obedar/ViewModel/RestaurantDetailViewModel.swift; sourceTree = SOURCE_ROOT; };
+		DFF635E12072548900B1FE03 /* FullscreenMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenMapViewController.swift; sourceTree = "<group>"; };
+		DFF635E3207254F100B1FE03 /* FullscreenMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenMapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 		DF168CE82062DA0100CA1BCC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DFF635E12072548900B1FE03 /* FullscreenMapViewController.swift */,
 				DFEA81EF2063B16F00614DA9 /* RestaurantDetailViewController.swift */,
 				DF168CEA2062DA4600CA1BCC /* RestaurantsViewController.swift */,
 			);
@@ -155,6 +160,7 @@
 		DF168CE92062DA1B00CA1BCC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DFF635E3207254F100B1FE03 /* FullscreenMapViewModel.swift */,
 				DF168CEC2062DA6600CA1BCC /* RestaurantsViewModel.swift */,
 				DFEA81F12063B19400614DA9 /* RestaurantDetailViewModel.swift */,
 			);
@@ -337,10 +343,12 @@
 				DFEA81F22063B19400614DA9 /* RestaurantDetailViewModel.swift in Sources */,
 				DF168CD52062D81600CA1BCC /* AppDelegate.swift in Sources */,
 				DF168CF02062DB3200CA1BCC /* RestaurantTO.swift in Sources */,
+				DFF635E4207254F100B1FE03 /* FullscreenMapViewModel.swift in Sources */,
 				DF168CED2062DA6600CA1BCC /* RestaurantsViewModel.swift in Sources */,
 				DFB4A9D420642EFB00B8EB41 /* RestaurantDetailHeaderView.swift in Sources */,
 				DF9523462062DDF800685442 /* Networking.swift in Sources */,
 				DFEA81EE2063A5D800614DA9 /* Extensions.swift in Sources */,
+				DFF635E22072548900B1FE03 /* FullscreenMapViewController.swift in Sources */,
 				DFEA81F02063B16F00614DA9 /* RestaurantDetailViewController.swift in Sources */,
 				DFB4A9D82064302A00B8EB41 /* RestaurantDetailCell.swift in Sources */,
 				DF168CF42062DC5B00CA1BCC /* MealTO.swift in Sources */,

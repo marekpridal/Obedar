@@ -12,7 +12,7 @@ import RxSwift
 class RestaurantDetailViewModel {
     
     let disposeBag = DisposeBag()
-    let data = Variable<RestaurantTO>(RestaurantTO(type: nil, id: "", title: nil, cached: nil, web: nil, soups: [], meals: [], menu: []))
+    let data = Variable<RestaurantTO>(RestaurantTO(type: nil, id: "", title: nil, cached: nil, web: nil, soups: [], meals: [], menu: [], GPS: nil))
     
     init() {
         data.asObservable().filter{ $0.hasData() && !$0.id.isEmpty && $0.web?.absoluteString.isEmpty ?? true }.subscribe(onNext: { [weak self] (restaurant) in
