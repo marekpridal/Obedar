@@ -24,7 +24,6 @@ class RestaurantsViewController: UITableViewController {
     let pullToRefresh = UIRefreshControl()
     
     //MARK: Life cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
