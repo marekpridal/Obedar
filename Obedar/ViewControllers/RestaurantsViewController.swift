@@ -193,7 +193,7 @@ extension RestaurantsViewController: UIViewControllerPreviewingDelegate {
         guard let index = tableView.indexPathForRow(at: location)?.row else { return nil }
         let detail = RestaurantDetailViewController.instantiate()
         detail.model = RestaurantDetailViewModel()
-        detail.model?.data.value = model.restaurants.value[index]
+        detail.model?.data.value = model.restaurants.value.filter{ $0.hasData() }[index]
         return detail
     }
     
