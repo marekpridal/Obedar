@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import AudioToolbox
 
 class RestaurantsViewController: UITableViewController {
     
@@ -32,7 +33,6 @@ class RestaurantsViewController: UITableViewController {
             self.navigationItem.largeTitleDisplayMode = .automatic
         }
         
-        
         self.splitViewController!.delegate = self;
         self.splitViewController!.preferredDisplayMode = .allVisible
         
@@ -40,6 +40,7 @@ class RestaurantsViewController: UITableViewController {
         setupBinding()
         setupUI()
         setupAppShortcuts()
+        model.refreshRestaurants()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -65,16 +66,33 @@ class RestaurantsViewController: UITableViewController {
     }
     
     private func setupBinding() {
-        model.restaurants.asObservable().observeOn(MainScheduler.instance).filter{ $0.filter{ $0.hasData() }.count > 0 && $0.filter{ $0.hasFetched() }.count != self.tableView.numberOfRows(inSection: 0) }.subscribe(onNext: { [weak self] (restaurant) in
+        model.restaurants.asObservable().observeOn(MainScheduler.instance).filter{ $0.filter{ $0.hasData() }.count > 0 && $0.filter{ $0.hasFetched() }.count != self.tableView.numberOfRows(inSection: 0)}.subscribe(onNext: { [weak self] (restaurant) in
+                guard let `self` = self else { return }
+                print("Reload data with new restaurant \(restaurant.last?.id ?? "")")
+                self.tableView.reloadData()
+                self.tableView.isHidden = false
+                if ((restaurant.filter{ $0.hasFetched() }.count + ((try? self.model.error.value().count) ?? 0)) == (self.model.restaurantsId.value.count)) {
+                    self.activityIndicator.stopAnimating()
+                    self.pullToRefresh.endRefreshing()
+                    AudioServicesPlaySystemSound(1519)
+                    UINotificationFeedbackGenerator().notificationOccurred(.success)
+                }
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        
+        model.error.asObserver().observeOn(MainScheduler.instance).filter{ $0.count > 0 }.filter{ $0.count == self.model.restaurantsId.value.count }.subscribe(onNext: { [weak self] (error) in
             guard let `self` = self else { return }
-            print("Reload data with new restaurant \(restaurant.last?.id ?? "")")
+            
             self.tableView.reloadData()
             self.tableView.isHidden = false
-            if ((restaurant.filter{ $0.hasFetched() }.count) == (self.model.restaurantsId.value.count)) {
-                self.activityIndicator.stopAnimating()
-                self.pullToRefresh.endRefreshing()
-                UINotificationFeedbackGenerator().notificationOccurred(.success)
-            }
+            self.activityIndicator.stopAnimating()
+            self.pullToRefresh.endRefreshing()
+            UINotificationFeedbackGenerator().notificationOccurred(.error)
+            AudioServicesPlaySystemSound(1521)
+
+            let alertController = UIAlertController(title: "MSG_ALERT".localized, message: error.first?.localizedDescription, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "MSG_OK".localized, style: UIAlertActionStyle.cancel, handler: nil))
+            self.navigationController?.present(alertController, animated: true, completion: nil)
+            
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
     }
     
@@ -139,16 +157,24 @@ extension RestaurantsViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if model.restaurants.value.count <= indexPath.row {
+        do
+        {
+            
+            if try model.restaurants.value().count <= indexPath.row {
+                return UITableViewCell()
+            }
+            let cell:RestaurantCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.setupCell(with: try model.restaurants.value().filter{ $0.hasData() }[indexPath.row], delegate: self)
+            return cell
+        } catch let e
+        {
+            print(e.localizedDescription)
             return UITableViewCell()
         }
-        let cell:RestaurantCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.setupCell(with: model.restaurants.value.filter{ $0.hasData() }[indexPath.row], delegate: self)
-        return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.restaurants.value.filter{ $0.hasData() }.count
+        return (try? model.restaurants.value().filter{ $0.hasData() }.count) ?? 0
     }
 }
 
@@ -193,7 +219,7 @@ extension RestaurantsViewController: UIViewControllerPreviewingDelegate {
         guard let index = tableView.indexPathForRow(at: location)?.row else { return nil }
         let detail = RestaurantDetailViewController.instantiate()
         detail.model = RestaurantDetailViewModel()
-        detail.model?.data.value = model.restaurants.value.filter{ $0.hasData() }[index]
+        detail.model?.data.value = try! model.restaurants.value().filter{ $0.hasData() }[index]
         return detail
     }
     

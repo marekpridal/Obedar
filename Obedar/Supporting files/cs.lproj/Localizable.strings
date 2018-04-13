@@ -16,3 +16,5 @@
 "MAP" = "Mapa";
 "DISMISS" = "Zavřít";
 "SHOW_ON_MAP" = "Ukázat na mapě";
+"MSG_ALERT" = "Něco se pokazilo 😞";
+"MSG_OK" = "OK";

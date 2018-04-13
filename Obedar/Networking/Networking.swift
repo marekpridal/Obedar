@@ -56,7 +56,7 @@ struct Networking {
         let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, let jsonData = try? JSON(data: data), (response as? HTTPURLResponse)?.statusCode == 200 else {
                 print(error?.localizedDescription ?? "error \(restaurant.id)")
-                completionHandler(RestaurantTO(type: nil, id: restaurant.id, title: nil, cached: nil, web: nil, soups: [], meals: [], menu: [], GPS: nil),error)
+                completionHandler(nil,error)
                 return
             }
             let type = jsonData["data"]["type"].string

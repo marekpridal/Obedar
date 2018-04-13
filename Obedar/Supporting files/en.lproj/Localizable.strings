@@ -16,3 +16,5 @@
 "MAP" = "Map";
 "DISMISS" = "Dismiss";
 "SHOW_ON_MAP" = "Show on map";
+"MSG_ALERT" = "Something went wrong 😞";
+"MSG_OK" = "OK";
