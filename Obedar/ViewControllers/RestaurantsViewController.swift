@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import AudioToolbox
+import StoreKit
 
 class RestaurantsViewController: UITableViewController {
     
@@ -45,6 +46,7 @@ class RestaurantsViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(cellType: RestaurantCell.self)
+        checkAppStoreReview()
         
         self.title = "RESTAURANT_VIEW_CONTROLLER".localized
     }
@@ -143,6 +145,30 @@ class RestaurantsViewController: UITableViewController {
             tableView.tableHeaderView = searchController.searchBar
             self.tableView.contentOffset = CGPoint(x: 0.0,y: 55.0)
         }
+    }
+    
+    private func checkAppStoreReview() {
+        let appOpenCount = logAppOpened()
+        
+        switch appOpenCount {
+        case 10,50:
+            SKStoreReviewController.requestReview()
+        case _ where appOpenCount%100 == 0 :
+            SKStoreReviewController.requestReview()
+        default:
+            print("App run count is : \(appOpenCount)")
+            break;
+        }
+    }
+    
+    private func logAppOpened() -> Int {
+        guard let openCount = UserDefaults.standard.value(forKey: Constants.openCount) as? Int else {
+            UserDefaults.standard.setValue(1, forKey: Constants.openCount)
+            return 1
+        }
+        UserDefaults.standard.setValue(openCount + 1, forKey: Constants.openCount)
+        
+        return openCount + 1
     }
 
 }

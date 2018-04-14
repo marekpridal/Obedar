@@ -10,4 +10,5 @@ import Foundation
 
 enum Constants {
     static let showMapShortcutItemType = "ShowMapShortcutItemType"
+    static let openCount = "OpenCount"
 }
