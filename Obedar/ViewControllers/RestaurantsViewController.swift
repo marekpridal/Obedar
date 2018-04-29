@@ -18,12 +18,13 @@ class RestaurantsViewController: UITableViewController {
     let model = RestaurantsViewModel()
     
     //MARK: Rx
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     //MARK: Properties
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    let searchController = UISearchController(searchResultsController: nil)
-    let pullToRefresh = UIRefreshControl()
+    private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    private let searchController = UISearchController(searchResultsController: nil)
+    private let pullToRefresh = UIRefreshControl()
+    private var selectedCell: RestaurantCell? = nil
     
     //MARK: Life cycle
     override func viewDidLoad() {
