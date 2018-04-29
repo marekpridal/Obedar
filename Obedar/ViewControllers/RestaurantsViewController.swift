@@ -205,7 +205,9 @@ extension RestaurantsViewController {
 }
 
 extension RestaurantsViewController : RestaurantCellDelegate {
-    func didSelectRestaurant(restaurant: RestaurantTO, cell: UITableViewCell) {
+    func didSelectRestaurant(restaurant: RestaurantTO, cell: RestaurantCell) {
+        selectedCell?.setSelected(false, animated: true)
+        
         let detail = RestaurantDetailViewController.instantiate()
         detail.model = RestaurantDetailViewModel()
         detail.model?.data.value = restaurant
@@ -214,8 +216,10 @@ extension RestaurantsViewController : RestaurantCellDelegate {
         navigationController.pushViewController(detail, animated: false)
         
         splitViewController?.showDetailViewController(navigationController, sender: nil)
-        
-        print(restaurant)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            cell.setSelected(true, animated: true)
+            selectedCell = cell
+        }
     }
 }
 

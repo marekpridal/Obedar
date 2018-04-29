@@ -10,7 +10,7 @@ import UIKit
 import Reusable
 
 protocol RestaurantCellDelegate : class {
-    func didSelectRestaurant(restaurant: RestaurantTO, cell: UITableViewCell)
+    func didSelectRestaurant(restaurant: RestaurantTO, cell: RestaurantCell)
 }
 
 class RestaurantCell: UITableViewCell, NibReusable {
