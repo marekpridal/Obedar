@@ -24,7 +24,7 @@ class RestaurantCell: UITableViewCell, NibReusable {
     weak var delegate:RestaurantCellDelegate?
     
     //MARK: Private properties
-    private var restaurant: RestaurantTO!
+    private(set) var restaurant: RestaurantTO!
 
     //MARK: Public funcs
     func setupCell(with restaurant:RestaurantTO, delegate: RestaurantCellDelegate?) {
