@@ -34,8 +34,8 @@ class RestaurantsViewController: UITableViewController {
             self.navigationItem.largeTitleDisplayMode = .automatic
         }
         
-        self.splitViewController!.delegate = self;
-        self.splitViewController!.preferredDisplayMode = .allVisible
+        self.splitViewController?.delegate = self;
+        self.splitViewController?.preferredDisplayMode = .allVisible
         
         setup(activityIndicator: activityIndicator)
         setupBinding()
@@ -103,8 +103,7 @@ class RestaurantsViewController: UITableViewController {
         setupRefreshControl()
         setupNavigationItem()
         
-        if(traitCollection.forceTouchCapability == .available)
-        {
+        if(traitCollection.forceTouchCapability == .available) {
             registerForPreviewing(with: self, sourceView: view)
         }
     }
@@ -182,17 +181,14 @@ extension RestaurantsViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        do
-        {
-            
+        do {
             if try model.restaurants.value().count <= indexPath.row {
                 return UITableViewCell()
             }
             let cell:RestaurantCell = tableView.dequeueReusableCell(for: indexPath)
             cell.setupCell(with: try model.restaurants.value().filter{ $0.hasData() }[indexPath.row], delegate: self)
             return cell
-        } catch let e
-        {
+        } catch let e {
             print(e.localizedDescription)
             return UITableViewCell()
         }
@@ -226,10 +222,8 @@ extension RestaurantsViewController: UISearchResultsUpdating,UISearchBarDelegate
 extension RestaurantsViewController : UISplitViewControllerDelegate {
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool
     {
-        if primaryViewController.content == self
-        {
-            if let _  = secondaryViewController.content as? RestaurantDetailViewController
-            {
+        if primaryViewController.content == self {
+            if let _  = secondaryViewController.content as? RestaurantDetailViewController {
                 return true
             }
         }
