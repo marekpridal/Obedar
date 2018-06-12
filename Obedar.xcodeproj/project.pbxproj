@@ -214,7 +214,6 @@
 				DF168CCE2062D81600CA1BCC /* Frameworks */,
 				DF168CCF2062D81600CA1BCC /* Resources */,
 				EB22EF534E56A2A7E32EAF6F /* [CP] Embed Pods Frameworks */,
-				3F2688B0D59E3F05EE2CF208 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,21 +277,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3F2688B0D59E3F05EE2CF208 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Obedar/Pods-Obedar-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6F957E22CC719A459137F730 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
