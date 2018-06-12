@@ -24,7 +24,6 @@ class RestaurantsViewController: UITableViewController {
     private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     private let searchController = UISearchController(searchResultsController: nil)
     private let pullToRefresh = UIRefreshControl()
-    private var selectedCell: RestaurantCell? = nil
     
     //MARK: Life cycle
     override func viewDidLoad() {
@@ -73,7 +72,6 @@ class RestaurantsViewController: UITableViewController {
             guard let `self` = self else { return }
             print("Reload data with new restaurant \(restaurants.last?.id ?? "")")
             self.tableView.reloadData()
-            self.tableView.selectRow(at: self.getIndexPath(for: self.selectedCell, restaurants: restaurants), animated: false, scrollPosition: .none)
             self.tableView.isHidden = false
             if ((restaurants.filter{ $0.hasFetched() }.count + ((try? self.model.error.value().count) ?? 0)) == (self.model.restaurantsId.value.count)) {
                 self.activityIndicator.stopAnimating()
@@ -172,15 +170,6 @@ class RestaurantsViewController: UITableViewController {
         
         return openCount + 1
     }
-
-    private func getIndexPath(for selectedRow: RestaurantCell?, restaurants: [RestaurantTO]) -> IndexPath? {
-        guard let selectedRow = selectedRow else { return nil }
-        
-        if let index = restaurants.index(where: { $0.id == selectedRow.restaurant.id }) {
-            return IndexPath(row: index, section: 0)
-        }
-        return nil
-    }
 }
 //MARK: Table view delegate
 extension RestaurantsViewController {
@@ -216,8 +205,6 @@ extension RestaurantsViewController {
 
 extension RestaurantsViewController : RestaurantCellDelegate {
     func didSelectRestaurant(restaurant: RestaurantTO, cell: RestaurantCell) {
-        selectedCell?.setSelected(false, animated: false)
-        
         let detail = RestaurantDetailViewController.instantiate()
         detail.model = RestaurantDetailViewModel()
         detail.model?.data.value = restaurant
@@ -226,10 +213,6 @@ extension RestaurantsViewController : RestaurantCellDelegate {
         navigationController.pushViewController(detail, animated: false)
         
         splitViewController?.showDetailViewController(navigationController, sender: nil)
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            cell.setSelected(true, animated: false)
-            selectedCell = cell
-        }
     }
 }
 
