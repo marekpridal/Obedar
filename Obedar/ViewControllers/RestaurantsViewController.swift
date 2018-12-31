@@ -21,7 +21,7 @@ class RestaurantsViewController: UITableViewController {
     private let disposeBag = DisposeBag()
     
     //MARK: Properties
-    private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    private let activityIndicator = UIActivityIndicatorView(style: .gray)
     private let searchController = UISearchController(searchResultsController: nil)
     private let pullToRefresh = UIRefreshControl()
     
@@ -92,7 +92,7 @@ class RestaurantsViewController: UITableViewController {
             AudioServicesPlaySystemSound(1521)
 
             let alertController = UIAlertController(title: "MSG_ALERT".localized, message: error.first?.localizedDescription, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "MSG_OK".localized, style: UIAlertActionStyle.cancel, handler: nil))
+            alertController.addAction(UIAlertAction(title: "MSG_OK".localized, style: UIAlertAction.Style.cancel, handler: nil))
             self.navigationController?.present(alertController, animated: true, completion: nil)
             
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
@@ -130,7 +130,7 @@ class RestaurantsViewController: UITableViewController {
         pullToRefresh.attributedTitle = NSAttributedString(string:"REFRESH".localized)
         self.refreshControl = pullToRefresh
         
-        pullToRefresh.rx.controlEvent(UIControlEvents.valueChanged).bind {
+        pullToRefresh.rx.controlEvent(UIControl.Event.valueChanged).bind {
             [weak self] in
             self?.model.refreshRestaurants()
         }.disposed(by: disposeBag)

@@ -33,8 +33,8 @@ class RestaurantDetailViewController: UIViewController {
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
         tableView.register(cellType: RestaurantDetailCell.self)
-        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         
         self.title = model?.data.value.title
         

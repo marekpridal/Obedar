@@ -64,7 +64,7 @@ class FullscreenMapViewController: UIViewController {
         
         let location = CLLocation(latitude: 50.102865, longitude: 14.391164)
         
-        let region = MKCoordinateRegionMakeWithDistance(location.coordinate,2000, 2000)
+        let region = MKCoordinateRegion.init(center: location.coordinate,latitudinalMeters: 2000, longitudinalMeters: 2000)
         
         map.setRegion(region, animated: true)
     }
@@ -137,7 +137,7 @@ extension FullscreenMapViewController: CLLocationManagerDelegate {
         {
             return
         }
-        let region = MKCoordinateRegionMakeWithDistance(locValue,2000, 2000)
+        let region = MKCoordinateRegion.init(center: locValue,latitudinalMeters: 2000, longitudinalMeters: 2000)
         
         map.setRegion(region, animated: true)
     }
