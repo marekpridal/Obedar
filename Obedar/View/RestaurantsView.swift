@@ -15,8 +15,10 @@ struct RestaurantsView : View {
     var body: some View {
         Group {
             List(model.restaurants) { restaurant in
-                NavigationButton(destination: RestaurantDetailView(model: RestaurantDetailViewModel(restaurant: restaurant))) {
-                    RestaurantRow(restaurant: restaurant)
+                Section() {
+                    NavigationButton(destination: RestaurantDetailView(model: RestaurantDetailViewModel(restaurant: restaurant))) {
+                        RestaurantRow(restaurant: restaurant)
+                    }
                 }
             }
             .navigationBarTitle(Text("Restaurants"), displayMode: NavigationBarItem.TitleDisplayMode.large)

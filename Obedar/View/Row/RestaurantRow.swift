@@ -13,14 +13,23 @@ struct RestaurantRow : View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text((restaurant.title ?? "")).font(.title)
-            Group {
-                Text((restaurant.meals?.first?.name ?? "")).font(.subheadline)
-                Text((restaurant.meals?.first?.price?.currency ?? "")).font(.subheadline)
+            Text((restaurant.title ?? ""))
+                .font(.system(size: 30))
+                .fontWeight(.bold)
+
+            Text((restaurant.meals?.first?.name ?? ""))
+                .font(.system(size: 14))
+                .fontWeight(.medium)
+            
+            HStack {
+                Spacer()
+                Text((restaurant.meals?.first?.price?.currency ?? ""))
+                    .font(.system(size: 22))
+                    .fontWeight(.bold)
             }
         }
         .lineLimit(nil)
-        .padding(20)
+        .padding(EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10))
     }
 }
 

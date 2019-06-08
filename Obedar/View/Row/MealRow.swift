@@ -12,10 +12,23 @@ struct MealRow<Meal: LunchProtocol> : View {
     let meal: Meal
     
     var body: some View {
-        VStack {
-            Text(meal.name)
-            Text((meal.price?.currency ?? ""))
+        Group {
+            VStack(alignment: .leading) {
+                Text(meal.name)
+                    .font(.system(size: 20))
+                    .fontWeight(.medium)
+                    .padding(.bottom, 5)
+                
+                HStack {
+                    Spacer()
+                    Text((meal.price?.currency ?? ""))
+                        .font(.system(size: 22))
+                        .fontWeight(.bold)
+                }
+            }
         }
+        .padding(EdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0))
+        .lineLimit(nil)
     }
 }
 
