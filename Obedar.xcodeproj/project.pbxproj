@@ -126,9 +126,8 @@
 				DFD1564522ABD14C00281A8A /* RestaurantsView.swift */,
 				DF38829722ABDB5D00119CC2 /* RootView.swift */,
 				DF38829922ABDBC800119CC2 /* RestaurantDetailView.swift */,
-				DF38829B22ABDF3600119CC2 /* RestaurantRow.swift */,
-				DF05E20222ABF2CE00B47477 /* MealSection.swift */,
-				DF05E20422ABF44C00B47477 /* MealRow.swift */,
+				DFF3F7D822AC035C005C34FC /* Row */,
+				DFF3F7D722AC0349005C34FC /* Section */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +159,23 @@
 				DFD1564E22ABD1A800281A8A /* Networking.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		DFF3F7D722AC0349005C34FC /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				DF05E20222ABF2CE00B47477 /* MealSection.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		DFF3F7D822AC035C005C34FC /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				DF38829B22ABDF3600119CC2 /* RestaurantRow.swift */,
+				DF05E20422ABF44C00B47477 /* MealRow.swift */,
+			);
+			path = Row;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
