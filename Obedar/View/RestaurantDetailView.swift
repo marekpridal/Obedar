@@ -14,21 +14,21 @@ struct RestaurantDetailView : View {
     var body: some View {
         List {
             if model.restaurant.soups?.count ?? 0 > 0 {
-                Section(header: MealSection(title: "Soup")) { () -> ForEach<[SoupTO], MealRow<SoupTO>> in
+                Section(header: MealSection(title: "SOUP")) { () -> ForEach<[SoupTO], MealRow<SoupTO>> in
                     ForEach((model.restaurant.soups ?? [])) { soup -> MealRow<SoupTO> in
                         MealRow(meal: soup)
                     }
                 }
             }
             if model.restaurant.meals?.count ?? 0 > 0 {
-                Section(header: MealSection(title: "Meal")) { () -> ForEach<[MealTO], MealRow<MealTO>> in
+                Section(header: MealSection(title: "MAIN_COURSE")) { () -> ForEach<[MealTO], MealRow<MealTO>> in
                     ForEach((model.restaurant.meals ?? [])) { meal -> MealRow<MealTO> in
                         MealRow(meal: meal)
                     }
                 }
             }
             if model.restaurant.menu?.count ?? 0 > 0 {
-                Section(header: MealSection(title: "Menu")) { () -> ForEach<[MenuTO], MealRow<MenuTO>> in
+                Section(header: MealSection(title: "MENU")) { () -> ForEach<[MenuTO], MealRow<MenuTO>> in
                     ForEach(model.restaurant.menu ?? []) { meal -> MealRow<MenuTO> in
                         MealRow(meal: meal)
                     }

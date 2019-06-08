@@ -14,11 +14,11 @@ struct FullscreenMapView : View {
     var body: some View {
         NavigationView {
             MapViewRepresentable(restaurants: restaurants)
-                .navigationBarTitle(Text("Map"), displayMode: .inline)
+                .navigationBarTitle(Text("MAP"), displayMode: .inline)
                 .navigationBarItems(leading: Button(action: {
                     print("Pressed")
                 }, label: {
-                    Text("Dismiss")
+                    Text("DISMISS")
                 }))
         }
     }

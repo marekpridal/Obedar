@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MealSection : View {
-    let title: String
+    let title: LocalizedStringKey
     
     var body: some View {
         Text(title)

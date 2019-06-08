@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  Obedar
+
+  Created by Marek Pridal on 08/06/2019.
+  Copyright © 2019 Marek Pridal. All rights reserved.
+*/
+
+"RESTAURANT_CELL_SUBTITLE" = "Delivered from restaurant at";
+"MAIN_COURSE" = "Main courses";
+"SOUP" = "Soups";
+"MENU" = "Menu";
+"RESTAURANT_VIEW_CONTROLLER" = "Restaurants";
+"REFRESH" = "Refresh";
+"NO_DATA_FOR_CATEGORY" = "Cannot found meals for required category in this restaurant 🤷‍♂️";
+"MAP" = "Map";
+"DISMISS" = "Dismiss";
+"SHOW_ON_MAP" = "Show on map";
+"MSG_ALERT" = "Something went wrong 😞";
+"MSG_OK" = "OK";
+"DISMISS" = "Dismiss";

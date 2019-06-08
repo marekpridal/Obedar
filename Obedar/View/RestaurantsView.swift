@@ -21,7 +21,7 @@ struct RestaurantsView : View {
                     }
                 }
             }
-            .navigationBarTitle(Text("Restaurants"), displayMode: NavigationBarItem.TitleDisplayMode.large)
+            .navigationBarTitle(Text("RESTAURANT_VIEW_CONTROLLER"), displayMode: NavigationBarItem.TitleDisplayMode.large)
             .navigationBarItems(trailing: PresentationButton(Image(systemName: "map"), destination: FullscreenMapView(restaurants: model.restaurants)))
         }
     }
