@@ -11,10 +11,15 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        guard (application.shortcutItems?.count ?? 0) == 0 else { return true }
+        
+        let showMap = UIMutableApplicationShortcutItem(type: Constants.showMapShortcutItemType, localizedTitle: NSLocalizedString("SHOW_ON_MAP", comment: ""))
+        showMap.icon = UIApplicationShortcutIcon(systemImageName: "map")
+        
+        UIApplication.shared.shortcutItems = [showMap]
+        
         return true
     }
 
