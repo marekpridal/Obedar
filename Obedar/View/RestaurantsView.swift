@@ -19,7 +19,8 @@ struct RestaurantsView : View {
                     RestaurantRow(restaurant: restaurant)
                 }
             }
-            .navigationBarTitle(Text("Restaurace"), displayMode: NavigationBarItem.TitleDisplayMode.large)
+            .navigationBarTitle(Text("Restaurants"), displayMode: NavigationBarItem.TitleDisplayMode.large)
+            .navigationBarItems(trailing: PresentationButton(Image(systemName: "map"), destination: FullscreenMapView(restaurants: model.restaurants)))
         }
     }
 }
