@@ -33,8 +33,8 @@ class RestaurantsViewModel: BindableObject {
         restaurantsId.forEach({ (restaurantId) in
             print("Getting menu for \(restaurantId.id)")
             Networking.getMenu(for: restaurantId, completionHandler: { [weak self] (restaurant, error) in
-                if let restaurant = restaurant {
-                    //print("Got menu for \(restaurant.title ?? "")")
+                print("Got menu for \(restaurant?.title ?? "")")
+                if let restaurant = restaurant, restaurant.hasData() {
                     self?.restaurants.append(restaurant)
                     self?.restaurants.sort(by: { $0.title ?? "" < $1.title ?? "" })
                 } else if let error = error {
