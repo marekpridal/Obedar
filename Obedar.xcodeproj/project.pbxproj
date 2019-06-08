@@ -3,392 +3,272 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8DF1DCC9D1D7A4D8D4EDD6BC /* Pods_Obedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6403BF6E5F8E0603233E493 /* Pods_Obedar.framework */; };
-		DF168CD52062D81600CA1BCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CD42062D81600CA1BCC /* AppDelegate.swift */; };
-		DF168CDA2062D81600CA1BCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF168CD82062D81600CA1BCC /* Main.storyboard */; };
-		DF168CDC2062D81600CA1BCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF168CDB2062D81600CA1BCC /* Assets.xcassets */; };
-		DF168CDF2062D81600CA1BCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF168CDD2062D81600CA1BCC /* LaunchScreen.storyboard */; };
-		DF168CEB2062DA4600CA1BCC /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CEA2062DA4600CA1BCC /* RestaurantsViewController.swift */; };
-		DF168CED2062DA6600CA1BCC /* RestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CEC2062DA6600CA1BCC /* RestaurantsViewModel.swift */; };
-		DF168CF02062DB3200CA1BCC /* RestaurantTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CEF2062DB3200CA1BCC /* RestaurantTO.swift */; };
-		DF168CF22062DC0B00CA1BCC /* SoupTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CF12062DC0B00CA1BCC /* SoupTO.swift */; };
-		DF168CF42062DC5B00CA1BCC /* MealTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CF32062DC5B00CA1BCC /* MealTO.swift */; };
-		DF168CF62062DC9800CA1BCC /* MenuTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF168CF52062DC9800CA1BCC /* MenuTO.swift */; };
-		DF9523462062DDF800685442 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9523452062DDF800685442 /* Networking.swift */; };
-		DFB4A9D220642E6900B8EB41 /* RestaurantDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFB4A9D120642E6900B8EB41 /* RestaurantDetailHeaderView.xib */; };
-		DFB4A9D420642EFB00B8EB41 /* RestaurantDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4A9D320642EFB00B8EB41 /* RestaurantDetailHeaderView.swift */; };
-		DFB4A9D620642F6600B8EB41 /* RestaurantDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFB4A9D520642F6600B8EB41 /* RestaurantDetailCell.xib */; };
-		DFB4A9D82064302A00B8EB41 /* RestaurantDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4A9D72064302A00B8EB41 /* RestaurantDetailCell.swift */; };
-		DFEA81E32063A20900614DA9 /* RestaurantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFEA81E22063A20900614DA9 /* RestaurantCell.xib */; };
-		DFEA81E52063A23200614DA9 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81E42063A23200614DA9 /* RestaurantCell.swift */; };
-		DFEA81E92063A51C00614DA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DFEA81EB2063A51C00614DA9 /* Localizable.strings */; };
-		DFEA81EE2063A5D800614DA9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81ED2063A5D800614DA9 /* Extensions.swift */; };
-		DFEA81F02063B16F00614DA9 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81EF2063B16F00614DA9 /* RestaurantDetailViewController.swift */; };
-		DFEA81F22063B19400614DA9 /* RestaurantDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEA81F12063B19400614DA9 /* RestaurantDetailViewModel.swift */; };
-		DFF635E22072548900B1FE03 /* FullscreenMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF635E12072548900B1FE03 /* FullscreenMapViewController.swift */; };
-		DFF635E4207254F100B1FE03 /* FullscreenMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF635E3207254F100B1FE03 /* FullscreenMapViewModel.swift */; };
-		DFF635E6207270C200B1FE03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF635E5207270C200B1FE03 /* Constants.swift */; };
+		DF38829822ABDB5D00119CC2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF38829722ABDB5D00119CC2 /* RootView.swift */; };
+		DF38829A22ABDBC800119CC2 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF38829922ABDBC800119CC2 /* RestaurantDetailView.swift */; };
+		DF38829C22ABDF3600119CC2 /* RestaurantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF38829B22ABDF3600119CC2 /* RestaurantRow.swift */; };
+		DF77A32A22ABD09D0051B05C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF77A32922ABD09D0051B05C /* AppDelegate.swift */; };
+		DF77A32C22ABD09D0051B05C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF77A32B22ABD09D0051B05C /* SceneDelegate.swift */; };
+		DF77A33022ABD09E0051B05C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF77A32F22ABD09E0051B05C /* Assets.xcassets */; };
+		DF77A33322ABD09E0051B05C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF77A33222ABD09E0051B05C /* Preview Assets.xcassets */; };
+		DF77A33622ABD09E0051B05C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF77A33422ABD09E0051B05C /* LaunchScreen.storyboard */; };
+		DFD1564422ABD12900281A8A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DFD1564322ABD12900281A8A /* SwiftyJSON */; };
+		DFD1564622ABD14C00281A8A /* RestaurantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD1564522ABD14C00281A8A /* RestaurantsView.swift */; };
+		DFD1564B22ABD18600281A8A /* RestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD1564A22ABD18600281A8A /* RestaurantsViewModel.swift */; };
+		DFD1564F22ABD1A800281A8A /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD1564E22ABD1A800281A8A /* Networking.swift */; };
+		DFD1565222ABD1BE00281A8A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD1565022ABD1BD00281A8A /* Constants.swift */; };
+		DFD1565322ABD1BE00281A8A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD1565122ABD1BD00281A8A /* Extensions.swift */; };
+		DFD1565822ABD1C700281A8A /* SoupTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD1565422ABD1C600281A8A /* SoupTO.swift */; };
+		DFD1565922ABD1C700281A8A /* MenuTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD1565522ABD1C600281A8A /* MenuTO.swift */; };
+		DFD1565A22ABD1C700281A8A /* RestaurantTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD1565622ABD1C600281A8A /* RestaurantTO.swift */; };
+		DFD1565B22ABD1C700281A8A /* MealTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD1565722ABD1C700281A8A /* MealTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A1CB476EB7E8660EE32B77CE /* Pods-Obedar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Obedar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Obedar/Pods-Obedar.debug.xcconfig"; sourceTree = "<group>"; };
-		ABF7DDE5A5A92261C59F1154 /* Pods-Obedar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Obedar.release.xcconfig"; path = "Pods/Target Support Files/Pods-Obedar/Pods-Obedar.release.xcconfig"; sourceTree = "<group>"; };
-		D6403BF6E5F8E0603233E493 /* Pods_Obedar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Obedar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF168CD12062D81600CA1BCC /* Obedar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Obedar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF168CD42062D81600CA1BCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF168CD92062D81600CA1BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DF168CDB2062D81600CA1BCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DF168CDE2062D81600CA1BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DF168CE02062D81600CA1BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF168CEA2062DA4600CA1BCC /* RestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantsViewController.swift; path = Obedar/ViewControllers/RestaurantsViewController.swift; sourceTree = SOURCE_ROOT; };
-		DF168CEC2062DA6600CA1BCC /* RestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewModel.swift; sourceTree = "<group>"; };
-		DF168CEF2062DB3200CA1BCC /* RestaurantTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTO.swift; sourceTree = "<group>"; };
-		DF168CF12062DC0B00CA1BCC /* SoupTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoupTO.swift; sourceTree = "<group>"; };
-		DF168CF32062DC5B00CA1BCC /* MealTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTO.swift; sourceTree = "<group>"; };
-		DF168CF52062DC9800CA1BCC /* MenuTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTO.swift; sourceTree = "<group>"; };
-		DF9523452062DDF800685442 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		DFB4A9D120642E6900B8EB41 /* RestaurantDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RestaurantDetailHeaderView.xib; path = Obedar/XIBs/RestaurantDetailHeaderView.xib; sourceTree = SOURCE_ROOT; };
-		DFB4A9D320642EFB00B8EB41 /* RestaurantDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailHeaderView.swift; sourceTree = "<group>"; };
-		DFB4A9D520642F6600B8EB41 /* RestaurantDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantDetailCell.xib; sourceTree = "<group>"; };
-		DFB4A9D72064302A00B8EB41 /* RestaurantDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailCell.swift; sourceTree = "<group>"; };
-		DFEA81E22063A20900614DA9 /* RestaurantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RestaurantCell.xib; path = ../XIBs/RestaurantCell.xib; sourceTree = "<group>"; };
-		DFEA81E42063A23200614DA9 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantCell.swift; path = ../XIBs/RestaurantCell.swift; sourceTree = "<group>"; };
-		DFEA81EA2063A51C00614DA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DFEA81EC2063A54300614DA9 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DFEA81ED2063A5D800614DA9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		DFEA81EF2063B16F00614DA9 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
-		DFEA81F12063B19400614DA9 /* RestaurantDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantDetailViewModel.swift; path = Obedar/ViewModel/RestaurantDetailViewModel.swift; sourceTree = SOURCE_ROOT; };
-		DFF635E12072548900B1FE03 /* FullscreenMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenMapViewController.swift; sourceTree = "<group>"; };
-		DFF635E3207254F100B1FE03 /* FullscreenMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenMapViewModel.swift; sourceTree = "<group>"; };
-		DFF635E5207270C200B1FE03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DF38829722ABDB5D00119CC2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		DF38829922ABDBC800119CC2 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
+		DF38829B22ABDF3600119CC2 /* RestaurantRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantRow.swift; sourceTree = "<group>"; };
+		DF77A32622ABD09D0051B05C /* Obedar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Obedar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF77A32922ABD09D0051B05C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DF77A32B22ABD09D0051B05C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DF77A32F22ABD09E0051B05C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DF77A33222ABD09E0051B05C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DF77A33522ABD09E0051B05C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DF77A33722ABD09E0051B05C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFD1564522ABD14C00281A8A /* RestaurantsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsView.swift; sourceTree = "<group>"; };
+		DFD1564A22ABD18600281A8A /* RestaurantsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsViewModel.swift; sourceTree = "<group>"; };
+		DFD1564E22ABD1A800281A8A /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		DFD1565022ABD1BD00281A8A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DFD1565122ABD1BD00281A8A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DFD1565422ABD1C600281A8A /* SoupTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoupTO.swift; sourceTree = "<group>"; };
+		DFD1565522ABD1C600281A8A /* MenuTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTO.swift; sourceTree = "<group>"; };
+		DFD1565622ABD1C600281A8A /* RestaurantTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTO.swift; sourceTree = "<group>"; };
+		DFD1565722ABD1C700281A8A /* MealTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DF168CCE2062D81600CA1BCC /* Frameworks */ = {
+		DF77A32322ABD09D0051B05C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DF1DCC9D1D7A4D8D4EDD6BC /* Pods_Obedar.framework in Frameworks */,
+				DFD1564422ABD12900281A8A /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0324FB02EFBBC097D9CADBB6 /* Pods */ = {
+		DF77A31D22ABD09D0051B05C = {
 			isa = PBXGroup;
 			children = (
-				A1CB476EB7E8660EE32B77CE /* Pods-Obedar.debug.xcconfig */,
-				ABF7DDE5A5A92261C59F1154 /* Pods-Obedar.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		B8DD1C2685E62D298F4DD8D9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D6403BF6E5F8E0603233E493 /* Pods_Obedar.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DF168CC82062D81600CA1BCC = {
-			isa = PBXGroup;
-			children = (
-				DF168CD32062D81600CA1BCC /* Obedar */,
-				DF168CD22062D81600CA1BCC /* Products */,
-				0324FB02EFBBC097D9CADBB6 /* Pods */,
-				B8DD1C2685E62D298F4DD8D9 /* Frameworks */,
+				DF77A32822ABD09D0051B05C /* Obedar */,
+				DF77A32722ABD09D0051B05C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		DF168CD22062D81600CA1BCC /* Products */ = {
+		DF77A32722ABD09D0051B05C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DF168CD12062D81600CA1BCC /* Obedar.app */,
+				DF77A32622ABD09D0051B05C /* Obedar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DF168CD32062D81600CA1BCC /* Obedar */ = {
+		DF77A32822ABD09D0051B05C /* Obedar */ = {
 			isa = PBXGroup;
 			children = (
-				DFEA81E62063A23D00614DA9 /* XIBs */,
-				DF9523442062DDDB00685442 /* Networking */,
-				DF168CEE2062DB1400CA1BCC /* TOs */,
-				DF168CE02062D81600CA1BCC /* Info.plist */,
-				DF168CE92062DA1B00CA1BCC /* ViewModel */,
-				DF168CE82062DA0100CA1BCC /* ViewControllers */,
-				DF168CE62062D9E200CA1BCC /* Supporting files */,
-				DF168CE72062D9F500CA1BCC /* Storyboard */,
+				DF77A33722ABD09E0051B05C /* Info.plist */,
+				DFD1564D22ABD18F00281A8A /* Networking */,
+				DFD1564C22ABD18A00281A8A /* Model */,
+				DFD1564922ABD17800281A8A /* ViewModel */,
+				DFD1564822ABD17100281A8A /* View */,
+				DFD1564722ABD16700281A8A /* Support */,
+				DF77A33122ABD09E0051B05C /* Preview Content */,
 			);
 			path = Obedar;
 			sourceTree = "<group>";
 		};
-		DF168CE62062D9E200CA1BCC /* Supporting files */ = {
+		DF77A33122ABD09E0051B05C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				DF168CD42062D81600CA1BCC /* AppDelegate.swift */,
-				DF168CDB2062D81600CA1BCC /* Assets.xcassets */,
-				DFEA81EB2063A51C00614DA9 /* Localizable.strings */,
-				DFEA81ED2063A5D800614DA9 /* Extensions.swift */,
-				DFF635E5207270C200B1FE03 /* Constants.swift */,
+				DF77A33222ABD09E0051B05C /* Preview Assets.xcassets */,
 			);
-			path = "Supporting files";
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		DF168CE72062D9F500CA1BCC /* Storyboard */ = {
+		DFD1564722ABD16700281A8A /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				DF168CD82062D81600CA1BCC /* Main.storyboard */,
-				DF168CDD2062D81600CA1BCC /* LaunchScreen.storyboard */,
+				DFD1565022ABD1BD00281A8A /* Constants.swift */,
+				DFD1565122ABD1BD00281A8A /* Extensions.swift */,
+				DF77A32922ABD09D0051B05C /* AppDelegate.swift */,
+				DF77A32B22ABD09D0051B05C /* SceneDelegate.swift */,
+				DF77A32F22ABD09E0051B05C /* Assets.xcassets */,
+				DF77A33422ABD09E0051B05C /* LaunchScreen.storyboard */,
 			);
-			path = Storyboard;
+			path = Support;
 			sourceTree = "<group>";
 		};
-		DF168CE82062DA0100CA1BCC /* ViewControllers */ = {
+		DFD1564822ABD17100281A8A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DFF635E12072548900B1FE03 /* FullscreenMapViewController.swift */,
-				DFEA81EF2063B16F00614DA9 /* RestaurantDetailViewController.swift */,
-				DF168CEA2062DA4600CA1BCC /* RestaurantsViewController.swift */,
+				DFD1564522ABD14C00281A8A /* RestaurantsView.swift */,
+				DF38829722ABDB5D00119CC2 /* RootView.swift */,
+				DF38829922ABDBC800119CC2 /* RestaurantDetailView.swift */,
+				DF38829B22ABDF3600119CC2 /* RestaurantRow.swift */,
 			);
-			path = ViewControllers;
+			path = View;
 			sourceTree = "<group>";
 		};
-		DF168CE92062DA1B00CA1BCC /* ViewModel */ = {
+		DFD1564922ABD17800281A8A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DFF635E3207254F100B1FE03 /* FullscreenMapViewModel.swift */,
-				DF168CEC2062DA6600CA1BCC /* RestaurantsViewModel.swift */,
-				DFEA81F12063B19400614DA9 /* RestaurantDetailViewModel.swift */,
+				DFD1564A22ABD18600281A8A /* RestaurantsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		DF168CEE2062DB1400CA1BCC /* TOs */ = {
+		DFD1564C22ABD18A00281A8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DF168CEF2062DB3200CA1BCC /* RestaurantTO.swift */,
-				DF168CF12062DC0B00CA1BCC /* SoupTO.swift */,
-				DF168CF32062DC5B00CA1BCC /* MealTO.swift */,
-				DF168CF52062DC9800CA1BCC /* MenuTO.swift */,
+				DFD1565722ABD1C700281A8A /* MealTO.swift */,
+				DFD1565522ABD1C600281A8A /* MenuTO.swift */,
+				DFD1565622ABD1C600281A8A /* RestaurantTO.swift */,
+				DFD1565422ABD1C600281A8A /* SoupTO.swift */,
 			);
-			path = TOs;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		DF9523442062DDDB00685442 /* Networking */ = {
+		DFD1564D22ABD18F00281A8A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				DF9523452062DDF800685442 /* Networking.swift */,
+				DFD1564E22ABD1A800281A8A /* Networking.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		DFEA81E62063A23D00614DA9 /* XIBs */ = {
-			isa = PBXGroup;
-			children = (
-				DFB4A9D120642E6900B8EB41 /* RestaurantDetailHeaderView.xib */,
-				DFB4A9D520642F6600B8EB41 /* RestaurantDetailCell.xib */,
-				DFB4A9D72064302A00B8EB41 /* RestaurantDetailCell.swift */,
-				DFB4A9D320642EFB00B8EB41 /* RestaurantDetailHeaderView.swift */,
-				DFEA81E22063A20900614DA9 /* RestaurantCell.xib */,
-				DFEA81E42063A23200614DA9 /* RestaurantCell.swift */,
-			);
-			path = XIBs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DF168CD02062D81600CA1BCC /* Obedar */ = {
+		DF77A32522ABD09D0051B05C /* Obedar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF168CE32062D81600CA1BCC /* Build configuration list for PBXNativeTarget "Obedar" */;
+			buildConfigurationList = DF77A33A22ABD09E0051B05C /* Build configuration list for PBXNativeTarget "Obedar" */;
 			buildPhases = (
-				6F957E22CC719A459137F730 /* [CP] Check Pods Manifest.lock */,
-				DF168CCD2062D81600CA1BCC /* Sources */,
-				DF168CCE2062D81600CA1BCC /* Frameworks */,
-				DF168CCF2062D81600CA1BCC /* Resources */,
-				EB22EF534E56A2A7E32EAF6F /* [CP] Embed Pods Frameworks */,
+				DF77A32222ABD09D0051B05C /* Sources */,
+				DF77A32322ABD09D0051B05C /* Frameworks */,
+				DF77A32422ABD09D0051B05C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Obedar;
-			productName = Obedar;
-			productReference = DF168CD12062D81600CA1BCC /* Obedar.app */;
+			packageProductDependencies = (
+				DFD1564322ABD12900281A8A /* SwiftyJSON */,
+			);
+			productName = obedar;
+			productReference = DF77A32622ABD09D0051B05C /* Obedar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DF168CC92062D81600CA1BCC /* Project object */ = {
+		DF77A31E22ABD09D0051B05C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0930;
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Marek Pridal";
 				TargetAttributes = {
-					DF168CD02062D81600CA1BCC = {
-						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1100;
-						ProvisioningStyle = Automatic;
+					DF77A32522ABD09D0051B05C = {
+						CreatedOnToolsVersion = 11.0;
 					};
 				};
 			};
-			buildConfigurationList = DF168CCC2062D81600CA1BCC /* Build configuration list for PBXProject "Obedar" */;
-			compatibilityVersion = "Xcode 8.0";
+			buildConfigurationList = DF77A32122ABD09D0051B05C /* Build configuration list for PBXProject "Obedar" */;
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
-				cs,
 			);
-			mainGroup = DF168CC82062D81600CA1BCC;
-			productRefGroup = DF168CD22062D81600CA1BCC /* Products */;
+			mainGroup = DF77A31D22ABD09D0051B05C;
+			packageReferences = (
+				DFD1564222ABD12900281A8A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
+			productRefGroup = DF77A32722ABD09D0051B05C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DF168CD02062D81600CA1BCC /* Obedar */,
+				DF77A32522ABD09D0051B05C /* Obedar */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DF168CCF2062D81600CA1BCC /* Resources */ = {
+		DF77A32422ABD09D0051B05C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFEA81E92063A51C00614DA9 /* Localizable.strings in Resources */,
-				DFB4A9D220642E6900B8EB41 /* RestaurantDetailHeaderView.xib in Resources */,
-				DFEA81E32063A20900614DA9 /* RestaurantCell.xib in Resources */,
-				DF168CDF2062D81600CA1BCC /* LaunchScreen.storyboard in Resources */,
-				DFB4A9D620642F6600B8EB41 /* RestaurantDetailCell.xib in Resources */,
-				DF168CDC2062D81600CA1BCC /* Assets.xcassets in Resources */,
-				DF168CDA2062D81600CA1BCC /* Main.storyboard in Resources */,
+				DF77A33622ABD09E0051B05C /* LaunchScreen.storyboard in Resources */,
+				DF77A33322ABD09E0051B05C /* Preview Assets.xcassets in Resources */,
+				DF77A33022ABD09E0051B05C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		6F957E22CC719A459137F730 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Obedar-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EB22EF534E56A2A7E32EAF6F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Obedar/Pods-Obedar-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Obedar/Pods-Obedar-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		DF168CCD2062D81600CA1BCC /* Sources */ = {
+		DF77A32222ABD09D0051B05C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFEA81E52063A23200614DA9 /* RestaurantCell.swift in Sources */,
-				DFF635E6207270C200B1FE03 /* Constants.swift in Sources */,
-				DFEA81F22063B19400614DA9 /* RestaurantDetailViewModel.swift in Sources */,
-				DF168CD52062D81600CA1BCC /* AppDelegate.swift in Sources */,
-				DF168CF02062DB3200CA1BCC /* RestaurantTO.swift in Sources */,
-				DFF635E4207254F100B1FE03 /* FullscreenMapViewModel.swift in Sources */,
-				DF168CED2062DA6600CA1BCC /* RestaurantsViewModel.swift in Sources */,
-				DFB4A9D420642EFB00B8EB41 /* RestaurantDetailHeaderView.swift in Sources */,
-				DF9523462062DDF800685442 /* Networking.swift in Sources */,
-				DFEA81EE2063A5D800614DA9 /* Extensions.swift in Sources */,
-				DFF635E22072548900B1FE03 /* FullscreenMapViewController.swift in Sources */,
-				DFEA81F02063B16F00614DA9 /* RestaurantDetailViewController.swift in Sources */,
-				DFB4A9D82064302A00B8EB41 /* RestaurantDetailCell.swift in Sources */,
-				DF168CF42062DC5B00CA1BCC /* MealTO.swift in Sources */,
-				DF168CEB2062DA4600CA1BCC /* RestaurantsViewController.swift in Sources */,
-				DF168CF22062DC0B00CA1BCC /* SoupTO.swift in Sources */,
-				DF168CF62062DC9800CA1BCC /* MenuTO.swift in Sources */,
+				DF77A32A22ABD09D0051B05C /* AppDelegate.swift in Sources */,
+				DFD1565B22ABD1C700281A8A /* MealTO.swift in Sources */,
+				DFD1565822ABD1C700281A8A /* SoupTO.swift in Sources */,
+				DF38829A22ABDBC800119CC2 /* RestaurantDetailView.swift in Sources */,
+				DFD1564F22ABD1A800281A8A /* Networking.swift in Sources */,
+				DF38829C22ABDF3600119CC2 /* RestaurantRow.swift in Sources */,
+				DFD1564B22ABD18600281A8A /* RestaurantsViewModel.swift in Sources */,
+				DFD1564622ABD14C00281A8A /* RestaurantsView.swift in Sources */,
+				DFD1565922ABD1C700281A8A /* MenuTO.swift in Sources */,
+				DF77A32C22ABD09D0051B05C /* SceneDelegate.swift in Sources */,
+				DF38829822ABDB5D00119CC2 /* RootView.swift in Sources */,
+				DFD1565222ABD1BE00281A8A /* Constants.swift in Sources */,
+				DFD1565322ABD1BE00281A8A /* Extensions.swift in Sources */,
+				DFD1565A22ABD1C700281A8A /* RestaurantTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DF168CD82062D81600CA1BCC /* Main.storyboard */ = {
+		DF77A33422ABD09E0051B05C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DF168CD92062D81600CA1BCC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DF168CDD2062D81600CA1BCC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DF168CDE2062D81600CA1BCC /* Base */,
+				DF77A33522ABD09E0051B05C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		DFEA81EB2063A51C00614DA9 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DFEA81EA2063A51C00614DA9 /* en */,
-				DFEA81EC2063A54300614DA9 /* cs */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		DF168CE12062D81600CA1BCC /* Debug */ = {
+		DF77A33822ABD09E0051B05C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -410,7 +290,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -429,8 +308,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -438,17 +318,17 @@
 			};
 			name = Debug;
 		};
-		DF168CE22062D81600CA1BCC /* Release */ = {
+		DF77A33922ABD09E0051B05C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -470,7 +350,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -483,44 +362,50 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		DF168CE42062D81600CA1BCC /* Debug */ = {
+		DF77A33B22ABD09E0051B05C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1CB476EB7E8660EE32B77CE /* Pods-Obedar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "obedar/Preview\\ Content";
 				DEVELOPMENT_TEAM = JV7TARSQ32;
-				INFOPLIST_FILE = Obedar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.marekpridal.Obedar;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = obedar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.marekpridal.obedar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		DF168CE52062D81600CA1BCC /* Release */ = {
+		DF77A33C22ABD09E0051B05C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABF7DDE5A5A92261C59F1154 /* Pods-Obedar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "obedar/Preview\\ Content";
 				DEVELOPMENT_TEAM = JV7TARSQ32;
-				INFOPLIST_FILE = Obedar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.marekpridal.Obedar;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = obedar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.marekpridal.obedar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -530,25 +415,44 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DF168CCC2062D81600CA1BCC /* Build configuration list for PBXProject "Obedar" */ = {
+		DF77A32122ABD09D0051B05C /* Build configuration list for PBXProject "Obedar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DF168CE12062D81600CA1BCC /* Debug */,
-				DF168CE22062D81600CA1BCC /* Release */,
+				DF77A33822ABD09E0051B05C /* Debug */,
+				DF77A33922ABD09E0051B05C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF168CE32062D81600CA1BCC /* Build configuration list for PBXNativeTarget "Obedar" */ = {
+		DF77A33A22ABD09E0051B05C /* Build configuration list for PBXNativeTarget "Obedar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DF168CE42062D81600CA1BCC /* Debug */,
-				DF168CE52062D81600CA1BCC /* Release */,
+				DF77A33B22ABD09E0051B05C /* Debug */,
+				DF77A33C22ABD09E0051B05C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DFD1564222ABD12900281A8A /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DFD1564322ABD12900281A8A /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFD1564222ABD12900281A8A /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = DF168CC92062D81600CA1BCC /* Project object */;
+	rootObject = DF77A31E22ABD09D0051B05C /* Project object */;
 }

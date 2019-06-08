@@ -6,41 +6,41 @@
 //  Copyright © 2018 Marek Pridal. All rights reserved.
 //
 
+import Combine
 import Foundation
-import RxSwift
+import SwiftUI
 
-class RestaurantsViewModel {
+class RestaurantsViewModel: BindableObject {
     
-    var restaurants = BehaviorSubject<[RestaurantTO]>(value: [])
-    var restaurantsId = Variable<[RestaurantTO]>([])
-    var error = BehaviorSubject<[Error]>(value: [])
-    private let disposeBag = DisposeBag()
+    var didChange = PassthroughSubject<Void, Never>()
+
+    var restaurants: [RestaurantTO] = [] {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.didChange.send(())
+            }
+        }
+    }
+    var restaurantsId: [RestaurantTO] = []
+    var error: Error?
     
     init() {
-        setupBinding()
+        refreshRestaurants()
     }
     
     func refreshRestaurants() {
-        restaurantsId.value = Networking.restaurantsLocal
-    }
-    
-    private func setupBinding() {
-        restaurantsId.asObservable().subscribe(onNext: { [weak self] (restaurantsId) in
-            self?.restaurants.onNext([])
-            self?.error.onNext([])
-            restaurantsId.forEach({ (restaurantId) in
-                print("Getting menu for \(restaurantId.id)")
-                Networking.getMenu(for: restaurantId, completionHandler: { [weak self] (restaurant, error) in
-                    guard let `self` = self else { return }
-                    if let restaurant = restaurant, var restaurants = try? self.restaurants.value() {
-                        restaurants.append(restaurant)
-                        self.restaurants.onNext(restaurants)
-                    } else if let error = error, var errors = try? self.error.value() {
-                        errors.append(error)
-                        self.error.onNext(errors)
-                    }
-                })
+        restaurantsId = Networking.restaurantsLocal
+        restaurantsId.forEach({ (restaurantId) in
+            print("Getting menu for \(restaurantId.id)")
+            Networking.getMenu(for: restaurantId, completionHandler: { [weak self] (restaurant, error) in
+                if let restaurant = restaurant {
+                    //print("Got menu for \(restaurant.title ?? "")")
+                    self?.restaurants.append(restaurant)
+                    self?.restaurants.sort(by: { $0.title ?? "" < $1.title ?? "" })
+                } else if let error = error {
+                    self?.error = error
+                }
             })
-        }).disposed(by: disposeBag)
+        })
     }
 }
