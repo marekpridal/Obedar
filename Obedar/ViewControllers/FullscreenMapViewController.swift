@@ -83,6 +83,8 @@ class FullscreenMapViewController: UIViewController {
                 locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
                 locationManager.requestLocation()
                 locationManager.allowsBackgroundLocationUpdates = false
+            @unknown default:
+                break
             }
         } else
         {
