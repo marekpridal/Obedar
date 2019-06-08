@@ -15,7 +15,7 @@ struct RestaurantsView : View {
     var body: some View {
         Group {
             List(model.restaurants) { restaurant in
-                NavigationButton(destination: RestaurantDetailView()) {
+                NavigationButton(destination: RestaurantDetailView(model: RestaurantDetailViewModel(restaurant: restaurant))) {
                     RestaurantRow(restaurant: restaurant)
                 }
             }

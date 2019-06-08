@@ -16,7 +16,7 @@ struct RestaurantRow : View {
             Text((restaurant.title ?? "")).font(.title)
             Group {
                 Text((restaurant.meals?.first?.name ?? "")).font(.subheadline)
-                Text((restaurant.meals?.first?.price.currency ?? "")).font(.subheadline)
+                Text((restaurant.meals?.first?.price?.currency ?? "")).font(.subheadline)
             }
         }
         .lineLimit(nil)

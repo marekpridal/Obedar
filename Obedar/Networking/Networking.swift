@@ -73,12 +73,12 @@ struct Networking {
 
             var soups:[SoupTO] = []
             soupsData?.forEach({ (json) in
-                soups.append(SoupTO(name: json[0].string ?? "", price: json[1].double ?? 0))
+                soups.append(SoupTO(name: json[0].string ?? "", price: json[1].double))
             })
             
             var meals:[MealTO] = []
             mealsData?.forEach({ (json) in
-                meals.append(MealTO(name: json[0].string ?? "", price: json[1].double ?? 0))
+                meals.append(MealTO(name: json[0].string ?? "", price: json[1].double))
             })
             
             var menu:[MenuTO] = []

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SoupTO: Codable {
+struct SoupTO: LunchProtocol {
     let name:String
-    let price:Double
+    let price:Double?
 }

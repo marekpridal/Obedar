@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct MenuTO: Codable {
+struct MenuTO: LunchProtocol, Identifiable {
     let name:String
     let price:Double?
     let description:String?

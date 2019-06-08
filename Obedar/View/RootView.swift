@@ -12,7 +12,7 @@ struct RootView : View {
     var body: some View {
         NavigationView {
             RestaurantsView(model: RestaurantsViewModel())
-            RestaurantDetailView()
+            //RestaurantDetailView()
         }
     }
 }
