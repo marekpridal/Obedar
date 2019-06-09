@@ -10,37 +10,67 @@ import Combine
 import Foundation
 import SwiftUI
 
-class RestaurantsViewModel: BindableObject {
+final class RestaurantsViewModel: BindableObject {
     
-    var didChange = PassthroughSubject<Void, Never>()
+    var didChange = CurrentValueSubject<[RestaurantTO], Never>([])
 
-    var restaurants: [RestaurantTO] = [] {
+    var restaurants: [RestaurantTO] = []
+    var restaurantsId: [RestaurantTO] = []
+    var error: Error? {
         didSet {
-            DispatchQueue.main.async { [weak self] in
-                self?.didChange.send(())
-            }
+            showError = error != nil
         }
     }
-    var restaurantsId: [RestaurantTO] = []
-    var error: Error?
+    var showError: Bool = false
+    
+    private var restaurantsSubscriptions: AnyCancellable?
+    private var restaurantsSink: Subscribers.Sink<CurrentValueSubject<[RestaurantTO], Error>>?
     
     init() {
         refreshRestaurants()
     }
     
+    deinit {
+        restaurantsSink?.cancel()
+    }
+    
     func refreshRestaurants() {
+        restaurantsSubscriptions = Networking.storage.restaurants
+            .handleEvents(receiveCompletion: { [weak self] (completion) in
+                print(completion)
+                switch completion {
+                case .failure(let error):
+                    self?.error = error
+                case .finished:
+                    break
+                }
+            })
+            .catch({ [weak self] (error) -> Publishers.Just<[RestaurantTO]> in
+                self?.error = error
+                return Publishers.Just<[RestaurantTO]>([])
+            })
+//      .print()
+//      .subscribe(on: RunLoop.current) Not working in first xcode beta
+        .subscribe(didChange)
+        
+        // Workaround because cannot use didChange.value in RestaurantsView
+        restaurantsSink = Networking.storage.restaurants
+            .sink(receiveCompletion: { [weak self] (completion) in
+                print(completion)
+                switch completion {
+                case .failure(let error):
+                    self?.error = error
+                case .finished:
+                    break
+                }
+            }, receiveValue: { [weak self] restaurants in
+                self?.restaurants = restaurants.filter { $0.hasData() }
+            })
+
         restaurantsId = Networking.restaurantsLocal
         restaurantsId.forEach({ (restaurantId) in
             print("Getting menu for \(restaurantId.id)")
-            Networking.getMenu(for: restaurantId, completionHandler: { [weak self] (restaurant, error) in
-                print("Got menu for \(restaurant?.title ?? "")")
-                if let restaurant = restaurant, restaurant.hasData() {
-                    self?.restaurants.append(restaurant)
-                    self?.restaurants.sort(by: { $0.title ?? "" < $1.title ?? "" })
-                } else if let error = error {
-                    self?.error = error
-                }
-            })
+            Networking.getMenu(for: restaurantId)
         })
     }
 }

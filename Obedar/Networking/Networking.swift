@@ -9,8 +9,12 @@
 import Foundation
 import SwiftyJSON
 import CoreLocation
+import SwiftUI
+import Combine
 
 struct Networking {
+    
+    static let storage = RestaurantsStorage()
     
     private enum Constants {
         static let rootURL = URL(string: "http://obedar.fit.cvut.cz/api/v1/restaurants")!
@@ -34,7 +38,7 @@ struct Networking {
         }
     }
     
-    static func getRestaurants(completionHandler: @escaping ([String]?,Error?)->Void) {
+    static private func getRestaurants(completionHandler: @escaping ([String]?,Error?)->Void) {
         var request = URLRequest(url: Constants.rootURL)
         request.httpMethod = "GET"
         
@@ -50,13 +54,18 @@ struct Networking {
         dataTask.resume()
     }
     
-    static func getMenu(for restaurant:RestaurantTO, completionHandler: @escaping (RestaurantTO?,Error?)->Void) {
+    static func getMenu(for restaurant:RestaurantTO) {
         var request = URLRequest(url: Constants.rootURL.appendingPathComponent(restaurant.id).appendingPathComponent("menu"))
         request.httpMethod = "GET"
         let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, let jsonData = try? JSON(data: data), (response as? HTTPURLResponse)?.statusCode == 200 else {
                 print(error?.localizedDescription ?? "error \(restaurant.id)")
-                completionHandler(nil,error)
+                if let error = error {
+                    DispatchQueue.main.async {
+                        // Need to send stream on main thread and in Xcode beta 1 doesnt  work reveive(on:) operator
+                        Networking.storage.restaurants.send(completion: Subscribers.Completion<Error>.failure(error))
+                    }
+                }
                 return
             }
             let type = jsonData["data"]["type"].string
@@ -86,13 +95,13 @@ struct Networking {
                 menu.append(MenuTO(name: json[0].string ?? "", price: json[1].double, description: json[1].string))
             })
             
-            completionHandler(RestaurantTO(type: type, id: restaurant.id, title: title, cached: date, web: nil, soups: soups, meals: meals, menu: menu, GPS: restaurant.GPS), error)
+            Networking.storage.add(restaurant: RestaurantTO(type: type, id: restaurant.id, title: title, cached: date, web: nil, soups: soups, meals: meals, menu: menu, GPS: restaurant.GPS))
         }
         
         dataTask.resume()
     }
     
-    static func getRestaurantDetail(for restaurant:RestaurantTO, completionHandler: @escaping (RestaurantTO?,Error?) -> Void) {
+    static private func getRestaurantDetail(for restaurant:RestaurantTO, completionHandler: @escaping (RestaurantTO?,Error?) -> Void) {
         var request = URLRequest(url: Constants.rootURL.appendingPathComponent(restaurant.id))
         request.httpMethod = "GET"
         let dataTask = URLSession.shared.dataTask(with: request) {
