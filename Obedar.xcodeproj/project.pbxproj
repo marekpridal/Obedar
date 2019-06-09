@@ -13,7 +13,7 @@
 		DF05E20922ABF89100B47477 /* LunchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05E20822ABF89100B47477 /* LunchProtocol.swift */; };
 		DF37576122AC394000DE3C0F /* RestaurantsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF37576022AC394000DE3C0F /* RestaurantsStorage.swift */; };
 		DF37576622AC54B400DE3C0F /* GeneralError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF37576522AC54B400DE3C0F /* GeneralError.swift */; };
-		DF38829822ABDB5D00119CC2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF38829722ABDB5D00119CC2 /* RootView.swift */; };
+		DF38829822ABDB5D00119CC2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF38829722ABDB5D00119CC2 /* ContentView.swift */; };
 		DF38829A22ABDBC800119CC2 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF38829922ABDBC800119CC2 /* RestaurantDetailView.swift */; };
 		DF38829C22ABDF3600119CC2 /* RestaurantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF38829B22ABDF3600119CC2 /* RestaurantRow.swift */; };
 		DF77A32A22ABD09D0051B05C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF77A32922ABD09D0051B05C /* AppDelegate.swift */; };
@@ -43,7 +43,7 @@
 		DF05E20822ABF89100B47477 /* LunchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchProtocol.swift; sourceTree = "<group>"; };
 		DF37576022AC394000DE3C0F /* RestaurantsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsStorage.swift; sourceTree = "<group>"; };
 		DF37576522AC54B400DE3C0F /* GeneralError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralError.swift; sourceTree = "<group>"; };
-		DF38829722ABDB5D00119CC2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		DF38829722ABDB5D00119CC2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DF38829922ABDBC800119CC2 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 		DF38829B22ABDF3600119CC2 /* RestaurantRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantRow.swift; sourceTree = "<group>"; };
 		DF77A32622ABD09D0051B05C /* Obedar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Obedar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				DFD1564522ABD14C00281A8A /* RestaurantsView.swift */,
-				DF38829722ABDB5D00119CC2 /* RootView.swift */,
+				DF38829722ABDB5D00119CC2 /* ContentView.swift */,
 				DF38829922ABDBC800119CC2 /* RestaurantDetailView.swift */,
 				DFF3F7D822AC035C005C34FC /* Row */,
 				DFF3F7D722AC0349005C34FC /* Section */,
@@ -296,7 +296,7 @@
 				DF77A32C22ABD09D0051B05C /* SceneDelegate.swift in Sources */,
 				DF37576622AC54B400DE3C0F /* GeneralError.swift in Sources */,
 				DF05E20322ABF2CE00B47477 /* MealSection.swift in Sources */,
-				DF38829822ABDB5D00119CC2 /* RootView.swift in Sources */,
+				DF38829822ABDB5D00119CC2 /* ContentView.swift in Sources */,
 				DFD1565222ABD1BE00281A8A /* Constants.swift in Sources */,
 				DF9C67B822AC069000053295 /* MapViewRepresentable.swift in Sources */,
 				DFD1565322ABD1BE00281A8A /* Extensions.swift in Sources */,

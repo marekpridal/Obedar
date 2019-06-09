@@ -1,5 +1,5 @@
 //
-//  RootView.swift
+//  ContentView.swift
 //  Obedar
 //
 //  Created by Marek Pridal on 08/06/2019.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct RootView : View {
+struct ContentView : View {
     var body: some View {
         NavigationView {
             RestaurantsView(model: RestaurantsViewModel())
@@ -20,7 +20,7 @@ struct RootView : View {
 #if DEBUG
 struct RootView_Previews : PreviewProvider {
     static var previews: some View {
-        RootView()
+        ContentView()
     }
 }
 #endif
