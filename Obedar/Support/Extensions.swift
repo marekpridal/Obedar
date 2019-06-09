@@ -9,7 +9,7 @@
 import Foundation
 
 extension Double {
-    var currency:String {
+    var currency: String {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "cs")
         formatter.numberStyle = .currency

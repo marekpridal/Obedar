@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct FullscreenMapView : View {
+struct FullscreenMapView: View {
     let restaurants: [RestaurantTO]
-    
+
     var body: some View {
         NavigationView {
             MapViewRepresentable(restaurants: restaurants)
@@ -25,9 +25,11 @@ struct FullscreenMapView : View {
 }
 
 #if DEBUG
-struct FullscreenMapView_Previews : PreviewProvider {
+// swiftlint:disable type_name
+struct FullscreenMapView_Previews: PreviewProvider {
     static var previews: some View {
         FullscreenMapView(restaurants: [])
     }
 }
+// swiftlint:enable type_name
 #endif

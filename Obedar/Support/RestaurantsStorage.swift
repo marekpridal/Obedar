@@ -13,7 +13,11 @@ import SwiftUI
 final class RestaurantsStorage {
     private(set) var restaurants = CurrentValueSubject<[RestaurantTO], Error>([])
     private var restaurantsValue: [RestaurantTO] = []
-    
+
+    deinit {
+        print("Deinit of \(self)")
+    }
+
     func add(restaurant: RestaurantTO) {
         DispatchQueue.main.async { [weak self] in
             // Need to send stream on main thread and in Xcode beta 1 doesnt  work reveive(on:) operator

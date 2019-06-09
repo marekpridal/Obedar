@@ -12,7 +12,11 @@ import SwiftUI
 
 class RestaurantDetailViewModel: BindableObject {
     var didChange = PassthroughSubject<RestaurantTO, Never>()
-    
+
+    deinit {
+        print("Deinit of \(self)")
+    }
+
     var restaurant: RestaurantTO {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -21,7 +25,7 @@ class RestaurantDetailViewModel: BindableObject {
             }
         }
     }
-    
+
     init(restaurant: RestaurantTO) {
         self.restaurant = restaurant
     }

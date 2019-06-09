@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct RestaurantRow : View {
+struct RestaurantRow: View {
     let restaurant: RestaurantTO
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text((restaurant.title ?? ""))
@@ -20,7 +20,7 @@ struct RestaurantRow : View {
             Text((restaurant.meals?.first?.name ?? ""))
                 .font(.system(size: 14))
                 .fontWeight(.medium)
-            
+
             HStack {
                 Spacer()
                 Text((restaurant.meals?.first?.price?.currency ?? ""))
@@ -34,9 +34,11 @@ struct RestaurantRow : View {
 }
 
 #if DEBUG
-struct RestaurantRow_Previews : PreviewProvider {
+// swiftlint:disable type_name
+struct RestaurantRow_Previews: PreviewProvider {
     static var previews: some View {
         RestaurantRow(restaurant: RestaurantTO(type: "Type", id: "Id", title: "title", cached: nil, web: nil, soups: [], meals: [MealTO(name: "Jídlo", price: 100.50)], menu: [MenuTO(name: "Menu", price: 200.01, description: "Popis")], GPS: nil))
     }
 }
+// swiftlint:enable type_name
 #endif

@@ -6,13 +6,11 @@
 //  Copyright © 2019 Marek Pridal. All rights reserved.
 //
 
-import UIKit
 import SwiftUI
-
+import UIKit
+// swiftlint:disable required_deinit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -53,30 +51,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-    
-    //MARK: - 3D Touch
+
+    // MARK: - 3D Touch
     func getVisibleViewController(_ rootViewController: UIViewController?) -> UIViewController? {
-        
         var rootVC = rootViewController
         if rootVC == nil {
             rootVC = UIApplication.shared.keyWindow?.rootViewController
         }
-        
+
         if rootVC?.presentedViewController == nil {
             return rootVC
         }
-        
+
         if let presented = rootVC?.presentedViewController {
-            if presented.isKind(of: UINavigationController.self) {
-                let navigationController = presented as! UINavigationController
-                return navigationController.viewControllers.last!
+            if let navigationController = presented as? UINavigationController {
+                return navigationController.viewControllers.last
             }
-            
-            if presented.isKind(of: UITabBarController.self) {
-                let tabBarController = presented as! UITabBarController
-                return tabBarController.selectedViewController!
+
+            if let tabBarController = presented as? UITabBarController {
+                return tabBarController.selectedViewController
             }
-            
+
             return getVisibleViewController(presented)
         }
         return nil
@@ -88,9 +83,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         let mapVC = UIHostingController(rootView: FullscreenMapView(restaurants: Networking.restaurantsLocal))
-        
+
         getVisibleViewController(self.window?.rootViewController)?.present(mapVC, animated: true, completion: nil)
         completionHandler(true)
     }
 }
-
+// swiftlint:enable required_deinit

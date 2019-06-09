@@ -10,6 +10,6 @@ import Foundation
 import SwiftUI
 
 struct MealTO: LunchProtocol {
-    let name:String
-    let price:Double?
+    let name: String
+    let price: Double?
 }

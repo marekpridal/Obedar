@@ -11,7 +11,6 @@ import Foundation
 import SwiftUI
 
 final class RestaurantsViewModel: BindableObject {
-    
     var didChange = CurrentValueSubject<[RestaurantTO], Never>([])
 
     var restaurants: [RestaurantTO] = []
@@ -22,44 +21,46 @@ final class RestaurantsViewModel: BindableObject {
         }
     }
     var showError: Bool = false
-    
+
     private var restaurantsSubscriptions: AnyCancellable?
     private var restaurantsSink: Subscribers.Sink<CurrentValueSubject<[RestaurantTO], Error>>?
-    
+
     init() {
         refreshRestaurants()
     }
-    
+
     deinit {
         restaurantsSink?.cancel()
     }
-    
+
     func refreshRestaurants() {
         restaurantsSubscriptions = Networking.storage.restaurants
-            .handleEvents(receiveCompletion: { [weak self] (completion) in
+            .handleEvents(receiveCompletion: { [weak self] completion in
                 print(completion)
                 switch completion {
                 case .failure(let error):
                     self?.error = error
+
                 case .finished:
                     break
                 }
             })
-            .catch({ [weak self] (error) -> Publishers.Just<[RestaurantTO]> in
+            .catch({ [weak self] error -> Publishers.Just<[RestaurantTO]> in
                 self?.error = error
                 return Publishers.Just<[RestaurantTO]>([])
             })
 //      .print()
 //      .subscribe(on: RunLoop.current) Not working in first xcode beta
         .subscribe(didChange)
-        
+
         // Workaround because cannot use didChange.value in RestaurantsView
         restaurantsSink = Networking.storage.restaurants
-            .sink(receiveCompletion: { [weak self] (completion) in
+            .sink(receiveCompletion: { [weak self] completion in
                 print(completion)
                 switch completion {
                 case .failure(let error):
                     self?.error = error
+
                 case .finished:
                     break
                 }
@@ -68,7 +69,7 @@ final class RestaurantsViewModel: BindableObject {
             })
 
         restaurantsId = Networking.restaurantsLocal
-        restaurantsId.forEach({ (restaurantId) in
+        restaurantsId.forEach({ restaurantId in
             print("Getting menu for \(restaurantId.id)")
             Networking.getMenu(for: restaurantId)
         })

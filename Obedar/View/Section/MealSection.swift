@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct MealSection : View {
+struct MealSection: View {
     let title: LocalizedStringKey
-    
+
     var body: some View {
         Text(title)
             .font(.system(size: 30))
@@ -19,9 +19,11 @@ struct MealSection : View {
 }
 
 #if DEBUG
-struct MealSection_Previews : PreviewProvider {
+// swiftlint:disable type_name
+struct MealSection_Previews: PreviewProvider {
     static var previews: some View {
         MealSection(title: "Section Title")
     }
 }
+// swiftlint:enable type_name
 #endif

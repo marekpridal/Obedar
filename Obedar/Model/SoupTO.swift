@@ -9,6 +9,6 @@
 import Foundation
 
 struct SoupTO: LunchProtocol {
-    let name:String
-    let price:Double?
+    let name: String
+    let price: Double?
 }

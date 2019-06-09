@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct MealRow<Meal: LunchProtocol> : View {
+struct MealRow<Meal: LunchProtocol>: View {
     let meal: Meal
-    
+
     var body: some View {
         Group {
             VStack(alignment: .leading) {
@@ -18,7 +18,7 @@ struct MealRow<Meal: LunchProtocol> : View {
                     .font(.system(size: 20))
                     .fontWeight(.medium)
                     .padding(.bottom, 5)
-                
+
                 HStack {
                     Spacer()
                     Text((meal.price?.currency ?? ""))
@@ -33,9 +33,11 @@ struct MealRow<Meal: LunchProtocol> : View {
 }
 
 #if DEBUG
-struct MealRow_Previews : PreviewProvider {
+// swiftlint:disable type_name
+struct MealRow_Previews: PreviewProvider {
     static var previews: some View {
         MealRow(meal: MealTO(name: "Wrap – rozpečená tortilla plněná smaženými kuřecími stripsy, trhaným salátem a rajčaty, podávaná s bramborovými hranolky a česnekovým dipem", price: 189.99))
     }
 }
+// swiftlint:enable type_name
 #endif
