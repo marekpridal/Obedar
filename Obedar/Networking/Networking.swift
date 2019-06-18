@@ -59,10 +59,7 @@ enum Networking {
             guard let data = data, let jsonData = try? JSON(data: data), (response as? HTTPURLResponse)?.statusCode == 200 else {
                 print(error?.localizedDescription ?? "error \(restaurant.id)")
                 if let error = error {
-                    DispatchQueue.main.async {
-                        // Need to send stream on main thread and in Xcode beta 1 doesnt  work reveive(on:) operator
-                        Networking.storage.restaurants.send(completion: Subscribers.Completion<Error>.failure(error))
-                    }
+                    Networking.storage.restaurants.send(completion: Subscribers.Completion<Error>.failure(error))
                 }
                 return
             }

@@ -19,10 +19,7 @@ class RestaurantDetailViewModel: BindableObject {
 
     var restaurant: RestaurantTO {
         didSet {
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.didChange.send(self.restaurant)
-            }
+            didChange.send(restaurant)
         }
     }
 

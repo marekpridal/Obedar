@@ -30,7 +30,7 @@ struct RestaurantsView: View {
                              secondaryButton: Alert.Button.cancel())
             })
             .navigationBarTitle(Text("RESTAURANT_VIEW_CONTROLLER"), displayMode: NavigationBarItem.TitleDisplayMode.large)
-            .navigationBarItems(trailing: PresentationButton(Image(systemName: "map"), destination: FullscreenMapView(restaurants: model.restaurants)))
+            .navigationBarItems(trailing: PresentationButton(destination: FullscreenMapView(restaurants: model.restaurants), label: { Image(systemName: "map") }))
         }
     }
 }

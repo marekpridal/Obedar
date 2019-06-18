@@ -19,11 +19,7 @@ final class RestaurantsStorage {
     }
 
     func add(restaurant: RestaurantTO) {
-        DispatchQueue.main.async { [weak self] in
-            // Need to send stream on main thread and in Xcode beta 1 doesnt  work reveive(on:) operator
-            guard let self = self else { return }
-            self.restaurantsValue.append(restaurant)
-            self.restaurants.send(self.restaurantsValue)
-        }
+        restaurantsValue.append(restaurant)
+        restaurants.send(restaurantsValue)
     }
 }

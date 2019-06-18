@@ -14,7 +14,7 @@ final class RestaurantsViewModel: BindableObject {
     var didChange = CurrentValueSubject<[RestaurantTO], Never>([])
 
     var restaurants: [RestaurantTO] = []
-    var restaurantsId: [RestaurantTO] = []
+    private var restaurantsId: [RestaurantTO] = []
     var error: Error? {
         didSet {
             showError = error != nil
@@ -49,8 +49,8 @@ final class RestaurantsViewModel: BindableObject {
                 self?.error = error
                 return Publishers.Just<[RestaurantTO]>([])
             })
-//      .print()
-//      .subscribe(on: RunLoop.current) Not working in first xcode beta
+//        .print()
+        .receive(on: RunLoop.main)
         .subscribe(didChange)
 
         // Workaround because cannot use didChange.value in RestaurantsView
