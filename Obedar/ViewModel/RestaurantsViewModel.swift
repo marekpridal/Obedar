@@ -23,7 +23,7 @@ final class RestaurantsViewModel: BindableObject {
     var showError: Bool = false
 
     private var restaurantsSubscriptions: AnyCancellable?
-    private var restaurantsSink: Subscribers.Sink<CurrentValueSubject<[RestaurantTO], Error>>?
+    private var restaurantsSink: Subscribers.Sink<[RestaurantTO], Error>?
 
     init() {
         refreshRestaurants()
@@ -45,9 +45,9 @@ final class RestaurantsViewModel: BindableObject {
                     break
                 }
             })
-            .catch({ [weak self] error -> Publishers.Just<[RestaurantTO]> in
+            .catch({ [weak self] error -> Just<[RestaurantTO]> in
                 self?.error = error
-                return Publishers.Just<[RestaurantTO]>([])
+                return Just<[RestaurantTO]>([])
             })
 //        .print()
         .receive(on: RunLoop.main)
