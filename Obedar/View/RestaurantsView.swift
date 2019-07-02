@@ -14,10 +14,9 @@ struct RestaurantsView: View {
 
     var body: some View {
         Group {
-            // Unable to use model.didChange.value instead of model.restaurants, no idea why
-            List(model.restaurants) { restaurant in
+            List(model.didChange.value) { restaurant in
                 Section {
-                    NavigationButton(destination: RestaurantDetailView(model: RestaurantDetailViewModel(restaurant: restaurant))) {
+                    NavigationLink(destination: RestaurantDetailView(model: RestaurantDetailViewModel(restaurant: restaurant))) {
                         RestaurantRow(restaurant: restaurant)
                     }
                 }
@@ -30,7 +29,7 @@ struct RestaurantsView: View {
                              secondaryButton: Alert.Button.cancel())
             })
             .navigationBarTitle(Text("RESTAURANT_VIEW_CONTROLLER"), displayMode: NavigationBarItem.TitleDisplayMode.large)
-            .navigationBarItems(trailing: PresentationButton(destination: FullscreenMapView(restaurants: model.restaurants), label: { Image(systemName: "map") }))
+                .navigationBarItems(trailing: PresentationLink(destination: FullscreenMapView(restaurants: model.didChange.value), label: { Image(systemName: "map") }))
         }
     }
 }

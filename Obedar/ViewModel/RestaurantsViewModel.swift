@@ -13,7 +13,6 @@ import SwiftUI
 final class RestaurantsViewModel: BindableObject {
     var didChange = CurrentValueSubject<[RestaurantTO], Never>([])
 
-    var restaurants: [RestaurantTO] = []
     private var restaurantsId: [RestaurantTO] = []
     var error: Error? {
         didSet {
@@ -34,27 +33,30 @@ final class RestaurantsViewModel: BindableObject {
     }
 
     func refreshRestaurants() {
-        restaurantsSubscriptions = Networking.storage.restaurants
-            .handleEvents(receiveCompletion: { [weak self] completion in
-                print(completion)
-                switch completion {
-                case .failure(let error):
-                    self?.error = error
+//        restaurantsSubscriptions = Networking.storage.restaurants
+//            .handleEvents(receiveCompletion: { [weak self] completion in
+//                print(completion)
+//                switch completion {
+//                case .failure(let error):
+//                    self?.error = error
+//
+//                case .finished:
+//                    break
+//                }
+//            })
+//            .catch({ [weak self] error -> Just<[RestaurantTO]> in
+//                self?.error = error
+//                return Just<[RestaurantTO]>([])
+//            })
+////        .print()
+//        .receive(on: RunLoop.main)
+//        .map { $0.filter { $0.hasData() } }
+//        .filter { !$0.isEmpty }
+//        .subscribe(didChange)
 
-                case .finished:
-                    break
-                }
-            })
-            .catch({ [weak self] error -> Just<[RestaurantTO]> in
-                self?.error = error
-                return Just<[RestaurantTO]>([])
-            })
-//        .print()
-        .receive(on: RunLoop.main)
-        .subscribe(didChange)
-
-        // Workaround because cannot use didChange.value in RestaurantsView
+        // Workaround because .subscribe(didChange) doesn't work
         restaurantsSink = Networking.storage.restaurants
+            .receive(on: RunLoop.main)
             .sink(receiveCompletion: { [weak self] completion in
                 print(completion)
                 switch completion {
@@ -65,7 +67,7 @@ final class RestaurantsViewModel: BindableObject {
                     break
                 }
             }, receiveValue: { [weak self] restaurants in
-                self?.restaurants = restaurants.filter { $0.hasData() }
+                self?.didChange.value = restaurants.filter { $0.hasData() }
             })
 
         restaurantsId = Networking.restaurantsLocal
