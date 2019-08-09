@@ -10,9 +10,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-final class RestaurantsViewModel: BindableObject {
-    var didChange = CurrentValueSubject<[RestaurantTO], Never>([])
-
+final class RestaurantsViewModel: ObservableObject {
     private var restaurantsId: [RestaurantTO] = []
     var error: Error? {
         didSet {
@@ -20,16 +18,16 @@ final class RestaurantsViewModel: BindableObject {
         }
     }
     var showError: Bool = false
+    var restaurants: [RestaurantTO] = []
 
     private var restaurantsSubscriptions: AnyCancellable?
-    private var restaurantsSink: Subscribers.Sink<[RestaurantTO], Error>?
 
     init() {
         refreshRestaurants()
     }
 
     deinit {
-        restaurantsSink?.cancel()
+        print("Deinit of \(self)")
     }
 
     func refreshRestaurants() {
@@ -55,7 +53,7 @@ final class RestaurantsViewModel: BindableObject {
 //        .subscribe(didChange)
 
         // Workaround because .subscribe(didChange) doesn't work
-        restaurantsSink = Networking.storage.restaurants
+        restaurantsSubscriptions = Networking.storage.restaurants
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { [weak self] completion in
                 print(completion)
@@ -67,7 +65,8 @@ final class RestaurantsViewModel: BindableObject {
                     break
                 }
             }, receiveValue: { [weak self] restaurants in
-                self?.didChange.value = restaurants.filter { $0.hasData() }
+                self?.objectWillChange.send()
+                self?.restaurants = restaurants.filter { $0.hasData() }
             })
 
         restaurantsId = Networking.restaurantsLocal

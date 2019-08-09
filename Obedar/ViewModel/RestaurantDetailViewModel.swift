@@ -10,16 +10,14 @@ import Combine
 import Foundation
 import SwiftUI
 
-class RestaurantDetailViewModel: BindableObject {
-    var didChange = PassthroughSubject<RestaurantTO, Never>()
-
+class RestaurantDetailViewModel: ObservableObject {
     deinit {
         print("Deinit of \(self)")
     }
 
     var restaurant: RestaurantTO {
         didSet {
-            didChange.send(restaurant)
+            objectWillChange.send()
         }
     }
 

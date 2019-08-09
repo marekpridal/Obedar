@@ -9,30 +9,30 @@
 import SwiftUI
 
 struct RestaurantDetailView: View {
-    @ObjectBinding var model: RestaurantDetailViewModel
+    @ObservedObject var model: RestaurantDetailViewModel
 
     var body: some View {
         List {
             if model.restaurant.soups?.count ?? 0 > 0 {
-                Section(header: MealSection(title: "SOUP")) { () -> ForEach<[SoupTO], MealRow<SoupTO>> in
+                Section(header: MealSection(title: "SOUP"), content: {
                     ForEach((model.restaurant.soups ?? [])) { soup -> MealRow<SoupTO> in
                         MealRow(meal: soup)
                     }
-                }
+                })
             }
             if model.restaurant.meals?.count ?? 0 > 0 {
-                Section(header: MealSection(title: "MAIN_COURSE")) { () -> ForEach<[MealTO], MealRow<MealTO>> in
+                Section(header: MealSection(title: "MAIN_COURSE"), content: {
                     ForEach((model.restaurant.meals ?? [])) { meal -> MealRow<MealTO> in
                         MealRow(meal: meal)
                     }
-                }
+                })
             }
             if model.restaurant.menu?.count ?? 0 > 0 {
-                Section(header: MealSection(title: "MENU")) { () -> ForEach<[MenuTO], MealRow<MenuTO>> in
+                Section(header: MealSection(title: "MENU"), content: {
                     ForEach(model.restaurant.menu ?? []) { meal -> MealRow<MenuTO> in
                         MealRow(meal: meal)
                     }
-                }
+                })
             }
         }
         .navigationBarTitle(Text((model.restaurant.title ?? "")), displayMode: .automatic)

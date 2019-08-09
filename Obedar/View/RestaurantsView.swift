@@ -10,27 +10,25 @@ import Combine
 import SwiftUI
 
 struct RestaurantsView: View {
-    @ObjectBinding var model: RestaurantsViewModel
+    @ObservedObject var model: RestaurantsViewModel
 
     var body: some View {
-        Group {
-            List(model.didChange.value) { restaurant in
-                Section {
-                    NavigationLink(destination: RestaurantDetailView(model: RestaurantDetailViewModel(restaurant: restaurant))) {
-                        RestaurantRow(restaurant: restaurant)
-                    }
+        List(model.restaurants) { restaurant in
+            Section {
+                NavigationLink(destination: RestaurantDetailView(model: RestaurantDetailViewModel(restaurant: restaurant))) {
+                    RestaurantRow(restaurant: restaurant)
                 }
             }
-            .presentation($model.showError.binding, alert: { () -> Alert in
-                return Alert(title: Text("ERROR_TITLE"),
-                             message: Text(model.error?.localizedDescription ?? "GENERAL_ERROR"),
-                             primaryButton: Alert.Button.default(Text("RETRY"),
-                                                                 onTrigger: { self.model.refreshRestaurants() }),
-                             secondaryButton: Alert.Button.cancel())
-            })
-            .navigationBarTitle(Text("RESTAURANT_VIEW_CONTROLLER"), displayMode: NavigationBarItem.TitleDisplayMode.large)
-                .navigationBarItems(trailing: PresentationLink(destination: FullscreenMapView(restaurants: model.didChange.value), label: { Image(systemName: "map") }))
         }
+        .alert(isPresented: $model.showError, content: { () -> Alert in
+            return Alert(title: Text("ERROR_TITLE"),
+                         message: Text(model.error?.localizedDescription ?? "GENERAL_ERROR"),
+                         primaryButton: Alert.Button.default(Text("RETRY"),
+                                                             action: { self.model.refreshRestaurants() }),
+                         secondaryButton: Alert.Button.cancel())
+        })
+        .navigationBarTitle(Text("RESTAURANT_VIEW_CONTROLLER"), displayMode: NavigationBarItem.TitleDisplayMode.large)
+        .navigationBarItems(trailing: NavigationLink(destination: FullscreenMapView(restaurants: model.restaurants), label: { Image(systemName: "map") }))
     }
 }
 
