@@ -11,7 +11,10 @@ import Foundation
 import SwiftUI
 
 final class RestaurantsViewModel: ObservableObject {
-    private var restaurantsId: [RestaurantTO] = []
+    // MARK: - ObservableObject
+    let objectWillChange = PassthroughSubject<Void, Never>()
+
+    // MARK: - Public properties
     var error: Error? {
         didSet {
             showError = error != nil
@@ -20,8 +23,10 @@ final class RestaurantsViewModel: ObservableObject {
     var showError: Bool = false
     var restaurants: [RestaurantTO] = []
 
+    // MARK: - Private properties
     private var restaurantsSubscriptions: AnyCancellable?
 
+    // MARK: - Lifecycle
     init() {
         refreshRestaurants()
     }
@@ -30,29 +35,8 @@ final class RestaurantsViewModel: ObservableObject {
         print("Deinit of \(self)")
     }
 
+    // MARK: - Public funcs
     func refreshRestaurants() {
-//        restaurantsSubscriptions = Networking.storage.restaurants
-//            .handleEvents(receiveCompletion: { [weak self] completion in
-//                print(completion)
-//                switch completion {
-//                case .failure(let error):
-//                    self?.error = error
-//
-//                case .finished:
-//                    break
-//                }
-//            })
-//            .catch({ [weak self] error -> Just<[RestaurantTO]> in
-//                self?.error = error
-//                return Just<[RestaurantTO]>([])
-//            })
-////        .print()
-//        .receive(on: RunLoop.main)
-//        .map { $0.filter { $0.hasData() } }
-//        .filter { !$0.isEmpty }
-//        .subscribe(didChange)
-
-        // Workaround because .subscribe(didChange) doesn't work
         restaurantsSubscriptions = Networking.storage.restaurants
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { [weak self] completion in
@@ -65,12 +49,12 @@ final class RestaurantsViewModel: ObservableObject {
                     break
                 }
             }, receiveValue: { [weak self] restaurants in
+                guard !restaurants.filter ({ $0.hasData() }).isEmpty else { return }
                 self?.objectWillChange.send()
                 self?.restaurants = restaurants.filter { $0.hasData() }
             })
 
-        restaurantsId = Networking.restaurantsLocal
-        restaurantsId.forEach({ restaurantId in
+        Networking.restaurantsLocal.forEach({ restaurantId in
             print("Getting menu for \(restaurantId.id)")
             Networking.getMenu(for: restaurantId)
         })

@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             RestaurantsView(model: RestaurantsViewModel())
-            //RestaurantDetailView()
+            RestaurantDetailView(model: RestaurantDetailViewModel(restaurant: RestaurantTO(type: nil, id: "id", title: nil, cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: nil)))
         }
     }
 }
