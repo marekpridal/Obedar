@@ -12,6 +12,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
+    var fullscreenMapView: UIHostingController<FullscreenMapView>?
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -84,10 +86,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             completionHandler(false)
             return
         }
-        let mapVC = UIHostingController(rootView: FullscreenMapView(restaurants: Networking.storage.restaurantsLocal))
+        let mapVC = UIHostingController(rootView: FullscreenMapView(viewModel: FullscreenMapViewModel(restaurants: Networking.storage.restaurantsLocal, delegate: self)))
 
         getVisibleViewController(self.window?.rootViewController)?.present(mapVC, animated: true, completion: nil)
         completionHandler(true)
     }
 }
 // swiftlint:enable required_deinit
+
+extension SceneDelegate: FullscreenMapViewModelDelegate {
+    func closeFullscreenMapView() {
+        fullscreenMapView?.dismiss(animated: true, completion: nil)
+    }
+}

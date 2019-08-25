@@ -28,7 +28,13 @@ struct RestaurantsView: View {
                          secondaryButton: Alert.Button.cancel())
         })
         .navigationBarTitle(Text("RESTAURANT_VIEW_CONTROLLER"), displayMode: NavigationBarItem.TitleDisplayMode.large)
-        .navigationBarItems(trailing: NavigationLink(destination: FullscreenMapView(restaurants: model.restaurants), label: { Image(systemName: "map") }))
+        .navigationBarItems(trailing: Button(action: {
+            self.model.showMap = true
+        }, label: {
+            Image(systemName: "map")
+        }).sheet(isPresented: $model.showMap) {
+            FullscreenMapView(viewModel: FullscreenMapViewModel(restaurants: self.model.restaurants, delegate: self.model as? FullscreenMapViewModelDelegate))
+        })
     }
 }
 

@@ -9,14 +9,15 @@
 import SwiftUI
 
 struct FullscreenMapView: View {
-    let restaurants: [RestaurantTO]
+    let viewModel: FullscreenMapViewModel
 
     var body: some View {
         NavigationView {
-            MapViewRepresentable(restaurants: restaurants)
+            MapViewRepresentable(restaurants: viewModel.restaurants)
                 .navigationBarTitle(Text("MAP"), displayMode: .inline)
                 .navigationBarItems(leading: Button(action: {
                     print("Pressed")
+                    self.viewModel.delegate?.closeFullscreenMapView()
                 }, label: {
                     Text("DISMISS")
                 }))
@@ -28,7 +29,7 @@ struct FullscreenMapView: View {
 // swiftlint:disable type_name
 struct FullscreenMapView_Previews: PreviewProvider {
     static var previews: some View {
-        FullscreenMapView(restaurants: [])
+        FullscreenMapView(viewModel: FullscreenMapViewModel(restaurants: [], delegate: nil))
     }
 }
 // swiftlint:enable type_name

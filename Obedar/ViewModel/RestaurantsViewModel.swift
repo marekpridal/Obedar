@@ -20,8 +20,17 @@ final class RestaurantsViewModel: ObservableObject {
             showError = error != nil
         }
     }
-    var showError: Bool = false
+    var showError: Bool = false {
+        didSet {
+            objectWillChange.send()
+        }
+    }
     var restaurants: [RestaurantTO] = []
+    var showMap = false {
+        didSet {
+            objectWillChange.send()
+        }
+    }
 
     // MARK: - Private properties
     private var restaurantsSubscriptions: AnyCancellable?
@@ -61,5 +70,11 @@ final class RestaurantsViewModel: ObservableObject {
             print("Getting menu for \(restaurantId.id)")
             Networking.getMenu(for: restaurantId)
         })
+    }
+}
+
+extension RestaurantsViewModel: FullscreenMapViewModelDelegate {
+    func closeFullscreenMapView() {
+        showMap = false
     }
 }
