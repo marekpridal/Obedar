@@ -37,10 +37,12 @@ final class RestaurantsViewModel: ObservableObject {
 
     // MARK: - Public funcs
     func refreshRestaurants() {
+        error = nil
+
         restaurantsSubscriptions = Networking.storage.restaurants
             .receive(on: RunLoop.main)
+            .print()
             .sink(receiveCompletion: { [weak self] completion in
-                print(completion)
                 switch completion {
                 case .failure(let error):
                     self?.error = error
@@ -52,9 +54,10 @@ final class RestaurantsViewModel: ObservableObject {
                 guard !restaurants.filter ({ $0.hasData() }).isEmpty else { return }
                 self?.objectWillChange.send()
                 self?.restaurants = restaurants.filter { $0.hasData() }
+                print("Has data for restaurants \(restaurants.map({ $0.title ?? "Without title" }))")
             })
 
-        Networking.restaurantsLocal.forEach({ restaurantId in
+        Networking.storage.restaurantsLocal.forEach({ restaurantId in
             print("Getting menu for \(restaurantId.id)")
             Networking.getMenu(for: restaurantId)
         })

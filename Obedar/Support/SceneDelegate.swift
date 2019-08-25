@@ -84,7 +84,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             completionHandler(false)
             return
         }
-        let mapVC = UIHostingController(rootView: FullscreenMapView(restaurants: Networking.restaurantsLocal))
+        let mapVC = UIHostingController(rootView: FullscreenMapView(restaurants: Networking.storage.restaurantsLocal))
 
         getVisibleViewController(self.window?.rootViewController)?.present(mapVC, animated: true, completion: nil)
         completionHandler(true)

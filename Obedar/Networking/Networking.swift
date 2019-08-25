@@ -7,9 +7,7 @@
 //
 
 import Combine
-import CoreLocation
 import Foundation
-import SwiftUI
 import SwiftyJSON
 
 enum Networking {
@@ -17,22 +15,6 @@ enum Networking {
 
     private enum Constants {
         static let rootURL = URL(string: "http://obedar.fit.cvut.cz/api/v1/restaurants")!
-    }
-
-    static var restaurantsLocal: [RestaurantTO] {
-        return [
-            RestaurantTO(type: nil, id: "U Pětníka", title: "U Pětníka", cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: CLLocationCoordinate2D(latitude: CLLocationDegrees(50.104388), longitude: CLLocationDegrees(14.396266))),
-            RestaurantTO(type: nil, id: "Na Urale", title: "Na Urale", cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: CLLocationCoordinate2D(latitude: CLLocationDegrees(50.102587), longitude: CLLocationDegrees(14.402206))),
-            RestaurantTO(type: nil, id: "Na Slamníku", title: "Na Slamníku", cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: CLLocationCoordinate2D(latitude: CLLocationDegrees(50.103652), longitude: CLLocationDegrees(14.408320))),
-            RestaurantTO(type: nil, id: "U Topolů", title: "U Topolů", cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: CLLocationCoordinate2D(latitude: CLLocationDegrees(50.106742), longitude: CLLocationDegrees(14.394968))),
-            RestaurantTO(type: nil, id: "Cesta časem", title: "Cesta časem", cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: CLLocationCoordinate2D(latitude: CLLocationDegrees(50.106419), longitude: CLLocationDegrees(14.386867))),
-            RestaurantTO(type: nil, id: "Bistro Santinka", title: "Bistro Santinka", cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: CLLocationCoordinate2D(latitude: CLLocationDegrees(50.106694), longitude: CLLocationDegrees(14.388263))),
-            RestaurantTO(type: nil, id: "Pod Juliskou", title: "Pod Juliskou", cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: CLLocationCoordinate2D(latitude: CLLocationDegrees(50.110703), longitude: CLLocationDegrees(14.393790))),
-            RestaurantTO(type: nil, id: "Pod Loubím", title: "Pod Loubím", cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: CLLocationCoordinate2D(latitude: CLLocationDegrees(50.100329), longitude: CLLocationDegrees(14.387902))),
-            RestaurantTO(type: nil, id: "Studentský dům", title: "Studentský dům", cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: CLLocationCoordinate2D(latitude: CLLocationDegrees(50.105499), longitude: CLLocationDegrees(14.388991))),
-            RestaurantTO(type: nil, id: "Pizzerie la fontanella", title: "Pizzerie la fontanella", cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: CLLocationCoordinate2D(latitude: CLLocationDegrees(50.105499), longitude: CLLocationDegrees(14.388991))),
-            RestaurantTO(type: nil, id: "Masarykova kolej", title: "Masarykova kolej", cached: nil, web: nil, soups: nil, meals: nil, menu: nil, GPS: CLLocationCoordinate2D(latitude: CLLocationDegrees(50.100985), longitude: CLLocationDegrees(14.387003)))
-        ]
     }
 
     private static func getRestaurants(completionHandler: @escaping ([String]?, Error?) -> Void) {
@@ -57,7 +39,7 @@ enum Networking {
         // swiftlint:disable closure_body_length
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let jsonData = try? JSON(data: data), (response as? HTTPURLResponse)?.statusCode == 200 else {
-                print(error?.localizedDescription ?? "error \(restaurant.id)")
+//                print(error?.localizedDescription ?? "error \(restaurant.id)")
                 if let error = error {
                     Networking.storage.restaurants.send(completion: Subscribers.Completion<Error>.failure(error))
                 }
@@ -101,7 +83,7 @@ enum Networking {
         request.httpMethod = "GET"
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let jsonData = try? JSON(data: data), (response as? HTTPURLResponse)?.statusCode == 200 else {
-                print(error?.localizedDescription ?? "error \(restaurant)")
+//                print(error?.localizedDescription ?? "error \(restaurant)")
                 completionHandler(restaurant, error)
                 return
             }
