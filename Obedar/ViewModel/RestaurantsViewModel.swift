@@ -60,7 +60,7 @@ final class RestaurantsViewModel: ObservableObject {
                     break
                 }
             }, receiveValue: { [weak self] restaurants in
-                guard !restaurants.filter ({ $0.hasData() }).isEmpty else { return }
+                guard !restaurants.filter({ $0.hasData() }).isEmpty else { return }
                 self?.objectWillChange.send()
                 self?.restaurants = restaurants.filter { $0.hasData() }
                 print("Has data for restaurants \(restaurants.map({ $0.title ?? "Without title" }))")

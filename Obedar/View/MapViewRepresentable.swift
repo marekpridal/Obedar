@@ -109,11 +109,9 @@ extension MapViewRepresentable: CLLocationManagerDelegate {
 }
 
 #if DEBUG
-// swiftlint:disable type_name
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapViewRepresentable(restaurants: [])
     }
 }
-// swiftlint:enable type_name
 #endif

@@ -33,11 +33,9 @@ struct MealRow<Meal: LunchProtocol>: View {
 }
 
 #if DEBUG
-// swiftlint:disable type_name
 struct MealRow_Previews: PreviewProvider {
     static var previews: some View {
         MealRow(meal: MealTO(name: "Wrap – rozpečená tortilla plněná smaženými kuřecími stripsy, trhaným salátem a rajčaty, podávaná s bramborovými hranolky a česnekovým dipem", price: 189.99))
     }
 }
-// swiftlint:enable type_name
 #endif

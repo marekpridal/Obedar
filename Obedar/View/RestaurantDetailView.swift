@@ -40,11 +40,9 @@ struct RestaurantDetailView: View {
 }
 
 #if DEBUG
-// swiftlint:disable type_name
 struct RestaurantDetailView_Previews: PreviewProvider {
     static var previews: some View {
         RestaurantDetailView(model: RestaurantDetailViewModel(restaurant: RestaurantTO(type: nil, id: "id", title: "title", cached: nil, web: nil, soups: [SoupTO(name: "Polívka", price: 50.5)], meals: [MealTO(name: "Hlavní jídlo", price: 150.55)], menu: [MenuTO(name: "Menu", price: 250.66, description: "Popis")], GPS: nil)))
     }
 }
-// swiftlint:enable type_name
 #endif

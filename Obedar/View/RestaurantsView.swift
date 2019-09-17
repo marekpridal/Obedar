@@ -39,12 +39,10 @@ struct RestaurantsView: View {
 }
 
 #if DEBUG
-// swiftlint:disable type_name
 struct RestaurantsView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = RestaurantsViewModel()
         return RestaurantsView(model: viewModel)
     }
 }
-// swiftlint:enable type_name
 #endif

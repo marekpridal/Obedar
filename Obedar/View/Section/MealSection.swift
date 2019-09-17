@@ -19,11 +19,9 @@ struct MealSection: View {
 }
 
 #if DEBUG
-// swiftlint:disable type_name
 struct MealSection_Previews: PreviewProvider {
     static var previews: some View {
         MealSection(title: "Section Title")
     }
 }
-// swiftlint:enable type_name
 #endif

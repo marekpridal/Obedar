@@ -26,11 +26,9 @@ struct FullscreenMapView: View {
 }
 
 #if DEBUG
-// swiftlint:disable type_name
 struct FullscreenMapView_Previews: PreviewProvider {
     static var previews: some View {
         FullscreenMapView(viewModel: FullscreenMapViewModel(restaurants: [], delegate: nil))
     }
 }
-// swiftlint:enable type_name
 #endif
